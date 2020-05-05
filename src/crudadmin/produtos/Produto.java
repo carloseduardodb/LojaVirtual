@@ -34,6 +34,24 @@ public class Produto {
         this.destaque = destaque;
     }
 
+    public Produto(int id_categoria, int id_subcategoria,
+                   int id_fabricante, String produto, float preco_alto, float preco,
+                   String descricao, String detalhes, String ativo_produto, String imagem,
+                   String destaque) {
+
+        this.id_categoria = id_categoria;
+        this.id_subcategoria = id_subcategoria;
+        this.id_fabricante = id_fabricante;
+        this.produto = produto;
+        this.preco_alto = preco_alto;
+        this.preco = preco;
+        this.descricao = descricao;
+        this.detalhes = detalhes;
+        this.ativo_produto = ativo_produto;
+        this.imagem = imagem;
+        this.destaque = destaque;
+    }
+
     public int getId_produto() {
         return id_produto;
     }
