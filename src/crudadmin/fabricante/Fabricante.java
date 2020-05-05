@@ -11,6 +11,12 @@ public class Fabricante {
         this.ativo_fabricante = ativo_fabricante;
     }
 
+    public Fabricante(String fabricante, String ativo_fabricante) {
+        this.fabricante = fabricante;
+        this.ativo_fabricante = ativo_fabricante;
+    }
+
+
     public int getId_fabricante() {
         return id_fabricante;
     }
