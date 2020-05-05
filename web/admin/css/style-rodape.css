@@ -1,0 +1,12 @@
+.rodape {
+    background-color: white;
+}
+
+.col-img-logo-developer {
+    background: url("../img/logo-empresa-desenvolvimento.svg") no-repeat center;
+}
+
+.col-img-logo-loja {
+    background: white url("../img/logo.png") center no-repeat;
+    background-size: 60%;
+}

@@ -1,0 +1,38 @@
+.pagina-inicio {
+    margin-top: 60px;
+    border-radius: 15px;
+    background: url("../img/simple-background-cad-product-02.svg") no-repeat right top, url("../img/simple-background-02.svg") right top no-repeat, url("../img/simple-background-cad-product.svg") no-repeat bottom left, url("../img/simple-folha-dobrada.svg") no-repeat right bottom;
+    background-color: #fff;
+    background-size: 20vw;
+    height: 150vh;
+    padding-bottom: 10vh;
+    height: auto;
+}
+
+.pagina-inicio .titulo {
+    padding: 25px;
+    text-align: center;
+}
+
+.pagina-inicio hr {
+    margin-top: -10px;
+    width: 50vw;
+}
+
+div span a.btn,
+.acao {
+    background-color: #9477ff;
+    border: 1px solid #aeaeae;
+    color: white;
+}
+
+.custom-file-label {
+    margin-top: 32px;
+}
+
+#btn-cadastrar {
+    margin-top: 15px;
+    background-color: #6C63FF;
+    color: #fff;
+    font-size: 19px
+}

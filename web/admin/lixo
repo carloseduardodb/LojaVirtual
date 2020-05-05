@@ -1,0 +1,18 @@
+else if(acao.equals("listartt")){
+
+        CategoriasDAO categoriadao = new CategoriasDAO();
+
+        if(request.getParameterMap().containsKey("ativo")){
+            if(request.getParameter("ativo").equals("Ativo(S)")){
+
+                request.setAttribute("listacategorias",
+                        categoriadao.read("SELECT * FROM categoria WHERE ativo_categoria = S;"));
+                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp?pagina=categorias");
+                rd.forward(request, response);
+
+            }else{
+                request.setAttribute("listacategorias", categoriadao.read("SELECT * FROM categoria WHERE ativo_categoria = N;"));
+                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp?pagina=categorias");
+                rd.forward(request, response);
+            }
+        }

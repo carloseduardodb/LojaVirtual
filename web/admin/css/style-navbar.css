@@ -1,0 +1,299 @@
+body {
+    background-color: #f2f5f6 !important;
+    width: 100% !important;
+}
+
+.row {
+    width: 100% !important;
+}
+
+.mobile-dual-nav {
+    display: none !important;
+}
+
+.menu-detalhes {
+    background: white url("../img/simple-background.svg") center no-repeat;
+    background-size: 25vw;
+    height: 220px;
+}
+
+.logo {
+    margin: 15px;
+}
+
+.opcoes {
+    text-align: end;
+}
+
+.opcoes img {
+    margin-right: 15px;
+    margin-top: 15px;
+}
+
+.dados li {
+    margin-top: 5px;
+    list-style-type: none;
+    font-size: 15px;
+}
+
+ul li h6 {
+    margin-top: -5px;
+    font-size: 17px;
+}
+
+.foto-perfil {
+    margin: 5px;
+    margin-left: 50px;
+}
+
+.foto-perfil .perfil {
+    margin-right: 15px;
+    border: 2px solid #f2f5f6;
+    border-radius: 8px;
+}
+
+div.dados-gerais {
+    margin-left: 3em;
+}
+
+div.dados-gerais li {
+    list-style: none;
+    text-align: center;
+    margin-top: 5px;
+    width: 50px;
+    border: 1.5px solid #2600b2;
+    border-radius: 5px;
+}
+
+.menu {
+    text-align: center;
+}
+
+.menu button {
+    cursor: pointer;
+    background-color: white;
+    margin-top: 5px;
+    width: 120px;
+    height: 50px;
+    padding: 5px;
+    border-radius: 13px;
+    margin-left: 25px;
+    margin-right: 25px;
+    border: 2px solid #fff;
+    -webkit-box-shadow: 1px 1px 4px 0px #7c7c7c, 6px 2px 17px 0px rgba(0, 0, 0, 0);
+    box-shadow: 1px 1px 7px 0px #7c7c7c, 1px 2px 17px 0px rgba(0, 0, 0, 0);
+    font-size: 13.5px;
+}
+
+.menu button.selected {
+    background-color: #9477ff;
+    color: #ffffff;
+}
+
+.menu button:hover {
+    color: #fff;
+    background-color: #9477ff;
+}
+
+.menu-mobile {
+    display: none;
+}
+
+.pagina-inicio {
+    margin-top: 60px;
+    border-radius: 15px;
+    background: url("../img/simple-background-cad-product-02.svg") no-repeat right top, url("../img/simple-background-02.svg") right top no-repeat, url("../img/simple-background-cad-product.svg") no-repeat bottom left, url("../img/simple-folha-dobrada.svg") no-repeat right bottom;
+    background-color: #fff;
+    background-size: 20vw;
+    height: 150vh;
+    padding-bottom: 10vh;
+    height: auto;
+}
+
+.pagina-inicio .titulo {
+    padding: 25px;
+    text-align: center;
+}
+
+.pagina-inicio hr {
+    margin-top: -10px;
+    width: 50vw;
+}
+
+div span a.btn,
+.acao {
+    background-color: #9477ff;
+    border: 1px solid #aeaeae;
+    color: white;
+}
+
+.custom-file-label {
+    margin-top: 32px;
+}
+
+#btn-cadastrar {
+    margin-top: 15px;
+    background-color: #6C63FF;
+    color: #fff;
+    font-size: 19px
+}
+
+.rodape {
+    background-color: white;
+}
+
+.col-img-logo-developer {
+    background: url("../img/logo-empresa-desenvolvimento.svg") no-repeat center;
+}
+
+.col-img-logo-loja {
+    background: white url("../img/logo.png") center no-repeat;
+    background-size: 60%;
+}
+
+/*Deixando Tudo Responsivo*/
+
+@media (max-width: 850px) {
+    .menu-detalhes {
+        background: none;
+        background-color: white;
+    }
+
+    .dados-gerais {
+        display: none;
+    }
+}
+
+@media (max-width: 720px) {
+    .mobile-dual-nav {
+        display: block !important;
+    }
+
+    .mobile-fixed {
+        position: fixed;
+        background-color: #fff;
+        z-index: 10;
+        height: 70px;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    ul li h6 {
+        font-size: 25px;
+    }
+
+    .dados li {
+        font-size: 20px;
+    }
+
+    .foto-perfil {
+        width: 100%;
+        margin: 5px;
+        margin-left: 25px;
+    }
+
+    .perfil {
+        width: 110px;
+        height: 110px;
+        margin-right: -50px;
+    }
+
+    .menu-mobile {
+        display: block;
+        text-align: center;
+    }
+
+    .menu-mobile button {
+        cursor: pointer;
+        background-color: white;
+        margin-top: 13px;
+        width: 100px;
+        height: 40px;
+        padding: 5px;
+        border-radius: 13px;
+        margin-right: 15px;
+        border: 2px solid #fff;
+        -webkit-box-shadow: 1px 1px 4px 0px #7c7c7c, 6px 2px 17px 0px rgba(0, 0, 0, 0);
+        box-shadow: 1px 1px 7px 0px #7c7c7c, 1px 2px 17px 0px rgba(0, 0, 0, 0);
+        font-size: 13.5px;
+    }
+
+    .menu-mobile button.selected {
+        background-color: #9477ff;
+        color: #ffffff;
+    }
+
+    .menu-mobile button:hover {
+        color: #fff;
+        background-color: #9477ff;
+    }
+}
+
+@media (max-width: 450px) {
+    .menu-detalhes {
+        height: 23vh;
+    }
+
+    .logo {
+        width: 100px;
+    }
+
+    .opcoes img {
+        width: 30px
+    }
+
+    ul li h6 {
+        font-size: 20px;
+    }
+
+    .dados li {
+        font-size: 12px;
+    }
+
+    .perfil {
+        width: 90px;
+        height: 90px;
+    }
+
+    .menu-mobile {
+        display: none;
+    }
+}
+
+@media (max-width: 375px) {
+    .menu-detalhes {
+        height: 27vh;
+    }
+
+    .perfil {
+        width: 80px;
+        height: 80px;
+    }
+
+    .dados img {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+@media (max-width: 325px) {
+    .perfil {
+        display: none;
+    }
+
+    .dados {
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+
+    .dados img {
+        float: left;
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+        margin-top: 3px;
+    }
+}
