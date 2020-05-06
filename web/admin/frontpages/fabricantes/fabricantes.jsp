@@ -12,18 +12,19 @@
 <div class="container pagina-inicio" align="center">
     <h2>Área administrativa - Fabricantes</h2>
     <hr />
-    <div class="input-group col-8 pesquisar">
-        <select class="form-control col-3" id="searching-option">
+    <form method="get" action="backpages/fabricantes/model.jsp" class="input-group col-8 pesquisar">
+        <select class="form-control col-3" id="searching-option" name="searching-option">
             <option>Fabricante</option>
             <option>Ativo</option>
             <option>Inativo</option>
         </select>
-        <input type="text" class="form-control" placeholder="Pesquisar">
+        <input type="text" class="form-control" name="pesquisa" placeholder="Pesquisar">
+        <input type="text" hidden="hidden" name="acao" value="visualizar">
         <span class="input-group-btn">
-        <a class="btn btn-default" type="button"><img src="img/searching.png" width="21px"></a>
+        <button style="background-color: #6C63FF" class="btn btn-default" type="submit"><img src="img/searching.png" width="21px"></button>
       </span>
-        <button class="btn btn-cadastrar" data-toggle="modal" data-target="#modalExemplo">Cadastrar</button>
-    </div>
+        <a class="btn btn-cadastrar" onclick="apagarDados()" style="color: #fff" data-toggle="modal" data-target="#modalFA">Cadastrar</a>
+    </form>
 
     <div class="tabela col-8">
 
@@ -43,7 +44,7 @@
                 <td><%=fbt.getFabricante()%></td>
                 <td><%=fbt.getAtivo_fabricante()%></td>
                 <td>
-                    <button class="acao btn" data-toggle="modal" data-target="#modalCA" onclick='adicionaDados(<%=new Gson().toJson(fbt)%>)'><img
+                    <button class="acao btn" data-toggle="modal" data-target="#modalFA" onclick='adicionaDados(<%=new Gson().toJson(fbt)%>)'><img
                             src="img/editar.png" width="15px" height="15px" ></button>
                     <button class="acao btn" onclick="location.href='backpages/produtos/model.jsp?acao=apagar&id=<%=fbt.getId_fabricante()%>'"><img src="img/apagar.png"
                                                                                                                                          width="15px" height="15px"></button>
@@ -68,42 +69,74 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal -->
+<div class="modal fade" id="modalFA" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="titulo-modalcategoria">Cadastro de categoria:</h5>
+                <h5 class="modal-title" id="titulo-modalcategoria">Cadastro de fabricante:</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form method="get" id="form-fabricante" action="backpages/fabricantes/model.jsp">
                     <div class="form-group">
-                        <label>Nome da Categoria</label>
-                        <input type="text" class="form-control" placeholder="Ex: Tablet">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Slug da Categoria</label>
-                        <input type="text" class="form-control" placeholder="Ex: telefones">
+                        <label>Nome do Fabricante:</label>
+                        <input hidden="true" id="acao" name="acao" type="text" value="cadastrar">
+                        <input hidden="true" id="identificacao" name="id-fabricante" type="text" value="">
+                        <input class="form-control" name="fabricante" id="nome" placeholder="Ex: Tablet" type="text">
                     </div>
 
                     <div class="form-group">
                         <label>Ativo</label>
-                        <select class="form-control">
+                        <select class="form-control" name="ativo-fabricante" id="ativo">
                             <option>Sim</option>
                             <option>Não</option>
                         </select>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn acao">Salvar</button>
+                    </div>
                 </form>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="button" class="btn acao">Salvar</button>
             </div>
         </div>
     </div>
 </div>
+
+
+<script>
+    var identificacao = document.getElementById("identificacao");
+    var acao = document.getElementById("acao");
+    var inome = document.getElementById("nome");
+    var iativo = document.getElementById("ativo");
+    var titulomodal = document.getElementById("titulo-modalcategoria");
+
+    function adicionaDados(dado) {
+
+        let id = dado.id_fabricante,
+            nome = dado.fabricante,
+            ativo = dado.ativo_fabricante;
+
+        identificacao.setAttribute("value", id);
+        acao.setAttribute("value", "atualizar");
+        inome.setAttribute("value", nome);
+        iativo.setAttribute("value", ativo);
+        titulomodal.innerHTML = "Editar fabricante:"
+    }
+
+    function apagarDados() {
+
+        acao.setAttribute("value", "cadastrar");
+        inome.setAttribute("value", "");
+        iativo.setAttribute("value", "");
+        titulomodal.innerHTML = "Cadastro de fabricante:";
+    }
+
+    function sair(){
+        document.write('');
+    }
+</script>
 
