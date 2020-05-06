@@ -25,7 +25,7 @@
         estaativourl = request.getParameter("searching-option");
         if (request.getParameter("searching-option").equals("Inativo")) {
             estaativoquery = " AND ativo_produto = 'N' ";
-        } else if (request.getParameter("searching-option").equals("Categoria")) {
+        } else if (request.getParameter("searching-option").equals("Produto")) {
             estaativoquery = "";
         } else {
             estaativoquery = " AND ativo_produto = 'S' ";
@@ -113,9 +113,4 @@
     session.removeAttribute("indices");
     session.setAttribute("listaproduto", listainteira);
     session.setAttribute("indices", pag);
-
-
-    for(Produto pf : listainteira){
-        System.out.println("******"+pf.getProduto());
-    }
 %>

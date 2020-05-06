@@ -11,19 +11,20 @@
 <div class="container pagina-inicio" align="center">
     <h2>Área administrativa - Produtos</h2>
     <hr/>
-    <div class="input-group col-8 pesquisar">
-        <select class="form-control col-3" id="searching-option">
-            <option>Categoria</option>
-            <option>Ativo (S)</option>
-            <option>Ativo (N)</option>
+    <form method="get" action="backpages/produtos/model.jsp" class="input-group col-8 pesquisar">
+        <select class="form-control col-3" id="searching-option" name="searching-option">
+            <option>Produto</option>
+            <option>Ativo</option>
+            <option>Inativo</option>
         </select>
-        <input type="text" class="form-control" placeholder="Pesquisar">
+        <input type="text" class="form-control" name="pesquisa" placeholder="Pesquisar">
+        <input type="text" hidden="hidden" name="acao" value="visualizar">
         <span class="input-group-btn">
-        <a class="btn btn-default" type="button"><img src="img/searching.png" width="21px"></a>
+        <button style="background-color: #6C63FF" class="btn btn-default" type="submit"><img src="img/searching.png" width="21px"></button>
       </span>
         <button class="btn btn-cadastrar" onclick="window.location.href = 'index.jsp?pagina=produtoscadatu'">Cadastrar
         </button>
-    </div>
+    </form>
 
     <div class="tabela col-8">
 
