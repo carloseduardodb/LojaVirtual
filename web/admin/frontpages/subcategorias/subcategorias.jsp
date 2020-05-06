@@ -152,9 +152,6 @@
     var titulomodal = document.getElementById("titulo-modalsubcategoria");
     var identificacao_categoria = document.getElementById("identificacao-categoria");
 
-
-
-
     //funcao para adicionar os dados dentro dos inputs quando for editar
     function adicionaDados(dado) {
 

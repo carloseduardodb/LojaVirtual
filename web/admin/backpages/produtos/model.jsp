@@ -73,5 +73,12 @@
 
         response.sendRedirect("../../index.jsp?pagina=produtos");
 
+    }else if(acao.equals("editar")){
+
+        List<Produto> edtproduto = pddao.read("SELECT * FROM produto WHERE id_produto = "+request.getParameter("id-produto"));
+        session.removeAttribute("dadosprodutoeditado");
+        session.setAttribute("dadosprodutoeditado", edtproduto);
+        response.sendRedirect("../../index.jsp?pagina=produtoscadatu");
+
     }
 %>

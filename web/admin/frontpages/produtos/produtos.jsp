@@ -22,8 +22,8 @@
         <span class="input-group-btn">
         <button style="background-color: #6C63FF" class="btn btn-default" type="submit"><img src="img/searching.png" width="21px"></button>
       </span>
-        <button class="btn btn-cadastrar" onclick="window.location.href = 'index.jsp?pagina=produtoscadatu'">Cadastrar
-        </button>
+        <a style="color: #fff;" class="btn btn-cadastrar" onclick="window.location.href = 'index.jsp?pagina=produtoscadatu'">Cadastrar
+        </a>
     </form>
 
     <div class="tabela col-8">
