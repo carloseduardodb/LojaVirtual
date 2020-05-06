@@ -25,7 +25,7 @@
 
         FabricanteDAO fabricantedao = new FabricanteDAO();
         id_fabricante = request.getParameter("id-fabricante");
-        response.sendRedirect("../../index.jsp?pagina=fabricantes&apagou=" + fabricantedao.delete(Integer.parseInt(id_fabricante)));
+        response.sendRedirect("../../index.jsp?pagina=fabricantes&apagou="+fabricantedao.delete(Integer.parseInt(id_fabricante)));
 
     } else if (acao.equals("atualizar")) {
 

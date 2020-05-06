@@ -46,7 +46,7 @@
                 <td>
                     <button class="acao btn" data-toggle="modal" data-target="#modalFA" onclick='adicionaDados(<%=new Gson().toJson(fbt)%>)'><img
                             src="img/editar.png" width="15px" height="15px" ></button>
-                    <button class="acao btn" onclick="location.href='backpages/produtos/model.jsp?acao=apagar&id=<%=fbt.getId_fabricante()%>'"><img src="img/apagar.png"
+                    <button class="acao btn" onclick="location.href='backpages/fabricantes/model.jsp?acao=apagar&id-fabricante=<%=fbt.getId_fabricante()%>'"><img src="img/apagar.png"
                                                                                                                                          width="15px" height="15px"></button>
                 </td>
             </tr>
