@@ -3,7 +3,7 @@
     border-radius: 15px;
     background: white url("../img/simple-background-info.svg") right bottom no-repeat;
     background-size: 35vw;
-    height: 75vh;
+    padding-bottom: 3vh;
 }
 
 .pagina-inicio h2 {

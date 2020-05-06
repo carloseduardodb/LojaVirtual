@@ -4,7 +4,7 @@
     background: url("../img/simple-background-subcategories.svg") right bottom no-repeat, url("../img/simple-background-02.svg") right top no-repeat, url("../img/simple-background-paper.svg") no-repeat left top;
     background-color: #fff;
     background-size: 20vw;
-    height: 85vh;
+    padding-bottom: 3vh;
 }
 
 .pagina-inicio h2 {

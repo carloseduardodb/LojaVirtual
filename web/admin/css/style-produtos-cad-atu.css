@@ -4,7 +4,6 @@
     background: url("../img/simple-background-cad-product-02.svg") no-repeat right top, url("../img/simple-background-02.svg") right top no-repeat, url("../img/simple-background-cad-product.svg") no-repeat bottom left, url("../img/simple-folha-dobrada.svg") no-repeat right bottom;
     background-color: #fff;
     background-size: 20vw;
-    height: 150vh;
     padding-bottom: 10vh;
     height: auto;
 }

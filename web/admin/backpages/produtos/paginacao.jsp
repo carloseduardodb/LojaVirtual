@@ -1,7 +1,4 @@
-<%@ page import="crudadmin.categorias.CategoriasDAO" %>
-<%@ page import="crudadmin.categorias.Categoria" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.google.gson.Gson" %>
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="crudadmin.produtos.ProdutosDAO" %>
@@ -55,7 +52,7 @@
     int tamanho = listainteira.size();
 
     //quantidade de linhas por paginas
-    final int LPP = 5;
+    final int LPP = 4;
 
     //determinar quantidade de paginas
     int paginaTamanho = Math.round(tamanho / LPP - 1);
@@ -98,7 +95,9 @@
         tem_url_proximo = "disabled";
     }
 
-    /* toda vez que abro a categoria a acao visualizar
+    //System.out.println("********************Lista de produtos testando"+listainteira.get(0).getProduto());
+
+    /* toda vez que abro produtos a acao visualizar
      * é nativa e a atualizacao
      * da tabela é necessaria em cada acao CRUD, esses metodos atualizam a mesma
      */
@@ -114,4 +113,9 @@
     session.removeAttribute("indices");
     session.setAttribute("listaproduto", listainteira);
     session.setAttribute("indices", pag);
+
+
+    for(Produto pf : listainteira){
+        System.out.println("******"+pf.getProduto());
+    }
 %>

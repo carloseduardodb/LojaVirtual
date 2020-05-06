@@ -7,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="paginacao.jsp"%>
 <%
     //declaro as variaveis a serem recebidas pelas acoes CRUD
     String acao, idproduto, idcategoria, idsubcategoria, idfabricante,
@@ -32,8 +33,8 @@
                 Integer.parseInt(idsubcategoria), Integer.parseInt(idfabricante),
                 produtonome, Float.parseFloat(precoalto), Float.parseFloat(preco),
                 descricao, detalhes, ativoproduto, imagem, destaque);
-        ProdutosDAO pddao = new ProdutosDAO();
-        Boolean cadastro = pddao.create(produto);
+        ProdutosDAO produtosDAO = new ProdutosDAO();
+        Boolean cadastro = produtosDAO.create(produto);
         response.sendRedirect("../../index.jsp?pagina=produtos&cadastrou=" + cadastro);
 
     }else if (acao.equals("apagar")){
@@ -64,8 +65,8 @@
                 Float.parseFloat(precoalto), Float.parseFloat(preco),
                 descricao, detalhes, ativoproduto, imagem, destaque);
 
-        ProdutosDAO pddao = new ProdutosDAO();
-        Boolean update = pddao.update(produto);
+        ProdutosDAO produtosDAO = new ProdutosDAO();
+        Boolean update = produtosDAO.update(produto);
         response.sendRedirect("../../index.jsp?pagina=produtos&atualizou=" + update);
 
     }else if(acao.equals("visualizar")){

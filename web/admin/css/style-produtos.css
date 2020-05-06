@@ -1,53 +1,53 @@
-.pagina-inicio {
+.pagina-inicio{
     margin-top: 60px;
     border-radius: 15px;
     background: url("../img/simple-background-product.svg") right bottom no-repeat, url("../img/simple-background-02.svg") right top no-repeat, url("../img/simple-background-product-03.svg") no-repeat center left;
     background-color: #fff;
     background-size: 20vw;
-    height: 90vh;
+    padding-bottom: 3vh;
 }
 
-.pagina-inicio h2 {
+.pagina-inicio h2{
     padding: 15px;
     text-align: center;
 }
 
-.pagina-inicio hr {
+.pagina-inicio hr{
     margin-top: -10px;
     width: 50vw;
 }
 
 
-div span a.btn, .acao {
+div span a.btn, .acao{
     background-color: #9477ff;
     border: 1px solid #aeaeae;
     color: white;
 }
 
-.pesquisar {
+.pesquisar{
     padding-top: 10px;
 }
 
-#searching-option {
+#searching-option{
     color: #fff;
     background-color: #9477ff;
 }
 
-.btn-cadastrar {
+.btn-cadastrar{
     margin-left: 80px;
     background-color: #9477ff;
     color: #fff;
 }
 
-.tabela {
+.tabela{
     padding-top: 25px;
 }
 
-.tabela table thead {
+.tabela table thead{
     background-color: #9477ff;
     color: #fff;
 }
 
-.tabela li a {
+.tabela li a{
     color: #9477ff;
 }
