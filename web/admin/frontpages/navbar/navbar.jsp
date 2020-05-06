@@ -62,7 +62,7 @@
         <button onclick="window.location.href = 'index.jsp'">Inicio</button>
         <button onclick="window.location.href = 'backpages/categorias/model.jsp?acao=visualizar'">Categorias</button>
         <button onclick="window.location.href = 'backpages/subcategorias/model.jsp?acao=visualizar'">Subcategorias</button>
-        <button onclick="window.location.href = 'index.jsp?pagina=produtos'">Produtos</button>
+        <button onclick="window.location.href = 'backpages/produtos/model.jsp?acao=visualizar'">Produtos</button>
     </div>
 
     <div class="menu-mobile">

@@ -1,7 +1,16 @@
+<%@ page import="crudadmin.produtos.Produto" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%
+    List<Produto> listprodut = (List<Produto>) session.getAttribute("listaproduto");
+    //Map<String, String> pag = (Map<String, String>) session.getAttribute("indices");
+    //int paginasmostradas = Integer.parseInt(pag.get("paginas_mostradas"));
+    //String pesquisa = pag.get("pesquisa");
+    //String ativo = pag.get("searching-option");
+%>
+
 <div class="container pagina-inicio" align="center">
     <h2>Área administrativa - Produtos</h2>
-    <hr />
+    <hr/>
     <div class="input-group col-8 pesquisar">
         <select class="form-control col-3" id="searching-option">
             <option>Categoria</option>
@@ -12,7 +21,8 @@
         <span class="input-group-btn">
         <a class="btn btn-default" type="button"><img src="img/searching.png" width="21px"></a>
       </span>
-        <button class="btn btn-cadastrar" onclick="window.location.href = 'index.jsp?pagina=produtoscadatu'" >Cadastrar</button>
+        <button class="btn btn-cadastrar" onclick="window.location.href = 'index.jsp?pagina=produtoscadatu'">Cadastrar
+        </button>
     </div>
 
     <div class="tabela col-8">
@@ -27,51 +37,17 @@
             </tr>
             </thead>
             <tbody>
+            <% for(Produto pd : listprodut) {%>
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
+                <th scope="row"><%=pd.getId_produto()%></th>
+                <td><%=pd.getProduto()%></td>
+                <td><%=pd.getPreco()%></td>
                 <td>
                     <button class="acao btn"><img src="img/editar.png" width="15px" height="15px"></button>
                     <button class="acao btn"><img src="img/apagar.png" width="15px" height="15px"></button>
                 </td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>
-                    <button class="acao btn"><img src="img/editar.png" width="15px" height="15px"></button>
-                    <button class="acao btn"><img src="img/apagar.png" width="15px" height="15px"></button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>
-                    <button class="acao btn"><img src="img/editar.png" width="15px" height="15px"></button>
-                    <button class="acao btn"><img src="img/apagar.png" width="15px" height="15px"></button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">4</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>
-                    <button class="acao btn"><img src="img/editar.png" width="15px" height="15px"></button>
-                    <button class="acao btn"><img src="img/apagar.png" width="15px" height="15px"></button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">5</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>
-                    <button class="acao btn"><img src="img/editar.png" width="15px" height="15px"></button>
-                    <button class="acao btn"><img src="img/apagar.png" width="15px" height="15px"></button>
-                </td>
-            </tr>
+            <%}%>
             </tbody>
         </table>
         <ul class="pagination justify-content-center">
