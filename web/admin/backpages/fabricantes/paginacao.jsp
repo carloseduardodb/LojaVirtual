@@ -107,8 +107,8 @@
     pag.put("paginas_mostradas", "" + paginas_mostradas);
     pag.put("pesquisa", pesquisa);
     pag.put("searching-option", estaativourl);
-    session.removeAttribute("listacategoria");
+    session.removeAttribute("listafabricante");
     session.removeAttribute("indices");
-    session.setAttribute("listacategoria", listainteira);
+    session.setAttribute("listafabricante", listainteira);
     session.setAttribute("indices", pag);
 %>

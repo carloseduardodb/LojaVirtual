@@ -28,7 +28,11 @@
     %>
     <%@include file="frontpages/subcategorias/importacoes.html" %>
     <%
-    } else if (pagina.equals("produtos")) {
+    }else if (pagina.equals("fabricantes")) {
+    %>
+    <%@include file="frontpages/fabricantes/importacoes.html" %>
+    <%
+    }  else if (pagina.equals("produtos")) {
     %>
     <%@include file="frontpages/produtos/importacoes.html" %>
     <%
@@ -69,6 +73,10 @@
 } else if (pagina.equals("produtos")) {
 %>
 <%@include file="frontpages/produtos/produtos.jsp" %>
+<%
+} else if (pagina.equals("fabricantes")) {
+%>
+<%@include file="frontpages/fabricantes/fabricantes.jsp" %>
 <%
 } else if (pagina.equals("produtoscadatu")) {
 %>

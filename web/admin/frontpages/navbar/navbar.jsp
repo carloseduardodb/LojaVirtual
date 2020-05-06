@@ -62,6 +62,7 @@
         <button onclick="window.location.href = 'index.jsp'">Inicio</button>
         <button onclick="window.location.href = 'backpages/categorias/model.jsp?acao=visualizar'">Categorias</button>
         <button onclick="window.location.href = 'backpages/subcategorias/model.jsp?acao=visualizar'">Subcategorias</button>
+        <button onclick="window.location.href = 'backpages/fabricantes/model.jsp?acao=visualizar'">Fabricantes</button>
         <button onclick="window.location.href = 'backpages/produtos/model.jsp?acao=visualizar'">Produtos</button>
     </div>
 
