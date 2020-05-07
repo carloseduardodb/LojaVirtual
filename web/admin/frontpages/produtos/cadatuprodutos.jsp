@@ -1,90 +1,110 @@
+<%
+    String id_produto = "";
+    String id_categoria = "";
+    String id_subcategoria = "";
+    String id_fabricante = "";
+
+    if (session.getAttribute("mapproduto") != null) {
+        Map<String, String> produto = (Map<String, String>) session.getAttribute("mapproduto");
+        id_produto = produto.get("id-produto");
+        id_categoria = produto.get("id-categoria");
+        id_subcategoria = produto.get("id-subcategoria");
+        id_fabricante = produto.get("id-fabricante");
+    }
+%>
+
 <%@ page contentType="text/html; charset=UTF-8" %>
 <div class="container pagina-inicio">
     <div class="titulo">
         <h2>Área administrativa - Cadastro de Produtos</h2>
-        <br />
-        <hr />
+        <br/>
+        <hr/>
     </div>
     <form class="col-lg-9 col-xs-12" style="margin: 0 auto;">
+
+        <input type="text" hidden name="id-produto" value="<%=id_produto%>">
+        <input type="text" hidden name="id-categoria" value="<%=id_categoria%>">
+        <input type="text" hidden name="id-subcategoria" value="<%=id_fabricante%>">
+        <input type="text" hidden name="id-fabricante" value="<%=id_subcategoria%>">
 
         <div class="form-row">
             <div class="col-md">
                 <label>Categoria:</label>
-                <select class="form-control">
+                <select name="categoria" class="form-control">
                     <option>Listar Categorias</option>
                 </select>
             </div>
 
             <div class="col-md">
                 <label>Subcategoria:</label>
-                <select class="form-control">
+                <select name="subcategoria" class="form-control">
                     <option>Listar Subcategorias</option>
                 </select>
             </div>
 
             <div class="col-md">
                 <label>Fabricante:</label>
-                <select class="form-control">
+                <select name="fabricante" class="form-control">
                     <option>Listar Fabricante</option>
                 </select>
             </div>
 
             <div class="col-ml">
                 <label>Ativo:</label>
-                <select class="form-control">
+                <select name="Ativo" class="form-control">
                     <option>Sim</option>
                     <option>Não</option>
                 </select>
             </div>
         </div>
 
-        <br />
+        <br/>
 
         <div class="form-row">
             <div class="col-md">
                 <label>Nome do Produto:</label>
-                <input type="text" class="form-control" placeholder="Nome">
+                <input name="nome-produto" type="text" class="form-control" placeholder="Nome">
             </div>
 
             <div class="col" style="margin-top: 20px">
-                <label >Carregar Imagem:</label>
+                <label>Carregar Imagem:</label>
                 <input type="file" class="custom-file-input" id="customFile">
                 <label class="custom-file-label" for="customFile">Escolher arquivo</label>
             </div>
         </div>
 
-        <br />
+        <br/>
 
         <div class="form-row">
             <div class="col-md">
                 <label>Nome da Imagem:</label>
-                <input type="text" class="form-control" placeholder="Nome">
+                <input name="nome-imagem" type="text" class="form-control" placeholder="Nome">
             </div>
 
             <div class="col">
                 <label>Preço Anterior:</label>
-                <input type="number" class="form-control" placeholder="R$ 0,00">
+                <input name="preco-alto" type="number" class="form-control" placeholder="R$ 0,00">
             </div>
 
             <div class="col">
                 <label>Preço Atual:</label>
-                <input type="number" class="form-control" placeholder="R$ 0,00">
+                <input name="preco" type="number" class="form-control" placeholder="R$ 0,00">
             </div>
         </div>
 
-        <br />
+        <br/>
 
         <div class="form-group">
-            <label for="formGroupExampleInput">Descrição:</label>
-            <textarea class="form-control" name="editor1" id="editor1" rows="10" cols="80">
+            <label>Descrição:</label>
+            <textarea name="descricao" class="form-control" id="editor1" rows="10" cols="80">
         </textarea>
         </div>
 
-        <br />
+        <br/>
 
         <div class="form-group">
-            <label for="formGroupExampleInput">Detalhes:</label>
-            <textarea class="form-control" name="editor1" id="editor2" rows="10" cols="80">
+            <label>Detalhes:</label>
+            <textarea class="form-control" name="detalhes" id="editor2" rows="10" cols="80">
         </textarea>
         </div>
         <div class="col text-center">
