@@ -1,7 +1,10 @@
 package crudadmin.produtos.cadatuprodutos;
 
 import connection.ConnectionDatabase;
+import crudadmin.categorias.Categoria;
+import crudadmin.fabricante.Fabricante;
 import crudadmin.produtos.Produto;
+import crudadmin.subcategorias.Subcategoria;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,21 +15,14 @@ import java.util.List;
 
 public class CadatuprodutosDAO {
 
-    public List<Cadatuproduto> read(){
-        String sql = "SELECT categoria.id_categoria, " +
-                "categoria, subcategoria.id_subcategoria, " +
-                "subcategoria, fabricante.id_fabricante, " +
-                "fabricante FROM produto INNER JOIN categoria ON " +
-                "produto.id_categoria = categoria.id_categoria INNER JOIN " +
-                "subcategoria ON produto.id_subcategoria = " +
-                "subcategoria.id_subcategoria INNER JOIN fabricante ON " +
-                "produto.id_fabricante = fabricante.id_fabricante;";
+    public List<Categoria> readcategoria(){
+        String sql = "SELECT categoria, id_categoria FROM categoria;";
 
         Connection con = ConnectionDatabase.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        List<Cadatuproduto> dependencias = new ArrayList<>();
+        List<Categoria> dependenciascat = new ArrayList<>();
 
         try {
             System.out.println("**********************************"+sql);
@@ -34,14 +30,10 @@ public class CadatuprodutosDAO {
             rs = stmt.executeQuery();
 
             while(rs.next()){
-                Cadatuproduto dados = new Cadatuproduto(
+                Categoria dados = new Categoria(
                         rs.getInt("id_categoria"),
-                        rs.getString("categoria"),
-                        rs.getInt("id_subcategoria"),
-                        rs.getString("subcategoria"),
-                        rs.getInt("id_fabricante"),
-                        rs.getString("fabricante"));
-                dependencias.add(dados);
+                        rs.getString("categoria"));
+                dependenciascat.add(dados);
             }
 
         } catch (SQLException throwables) {
@@ -50,7 +42,67 @@ public class CadatuprodutosDAO {
             ConnectionDatabase.closeConnection(con, stmt, rs);
         }
 
-        return dependencias;
+        return dependenciascat;
+    }
+
+    public List<Subcategoria> readsubcategoria(){
+        String sql = "SELECT subcategoria, id_subcategoria FROM subcategoria;";
+
+        Connection con = ConnectionDatabase.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<Subcategoria> dependenciassubcat = new ArrayList<>();
+
+        try {
+            System.out.println("**********************************"+sql);
+            stmt = con.prepareStatement(sql);
+            rs = stmt.executeQuery();
+
+            while(rs.next()){
+                Subcategoria dadossub = new Subcategoria(
+                        rs.getInt("id_subcategoria"),
+                        rs.getString("subcategoria"));
+                dependenciassubcat.add(dadossub);
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            ConnectionDatabase.closeConnection(con, stmt, rs);
+        }
+
+        return dependenciassubcat;
+    }
+
+    public List<Fabricante> readfabricante(){
+        String sql = "SELECT fabricante, id_fabricante FROM fabricante;";
+
+        Connection con = ConnectionDatabase.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<Fabricante> dependenciasfab = new ArrayList<>();
+
+        try {
+            System.out.println("**********************************"+sql);
+            stmt = con.prepareStatement(sql);
+            rs = stmt.executeQuery();
+
+            while(rs.next()){
+                Fabricante dados = new Fabricante(
+                        rs.getInt("id_fabricante"),
+                        rs.getString("fabricante"));
+                dependenciasfab.add(dados);
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            ConnectionDatabase.closeConnection(con, stmt, rs);
+        }
+
+        return dependenciasfab;
     }
 
 }

@@ -22,7 +22,7 @@
         <span class="input-group-btn">
         <button style="background-color: #6C63FF" class="btn btn-default" type="submit"><img src="img/searching.png" width="21px"></button>
       </span>
-        <a style="color: #fff;" class="btn btn-cadastrar" onclick="window.location.href = 'index.jsp?pagina=produtoscadatu'">Cadastrar
+        <a style="color: #fff;" class="btn btn-cadastrar" onclick="window.location.href = 'backpages/produtos/cadatuprodutos/model.jsp?acao=visualizar'">Cadastrar
         </a>
     </form>
 

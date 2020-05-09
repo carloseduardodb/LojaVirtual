@@ -11,6 +11,11 @@ public class Subcategoria {
     public Subcategoria() {
     }
 
+    public Subcategoria(int id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
+
     public int getId() {
         return id;
     }

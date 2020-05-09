@@ -1,4 +1,11 @@
+<%@ page import="crudadmin.categorias.Categoria" %>
+<%@ page import="crudadmin.subcategorias.Subcategoria" %>
+<%@ page import="crudadmin.fabricante.Fabricante" %>
 <%
+    List<Categoria> listcategoria = (List<Categoria>) session.getAttribute("dadoscat");
+    List<Subcategoria> listsubcategoria = (List<Subcategoria>) session.getAttribute("dadossub");
+    List<Fabricante> listfabricante = (List<Fabricante>) session.getAttribute("dadosfab");
+
     String id_produto = "";
     String id_categoria = "";
     String id_subcategoria = "";
@@ -31,21 +38,27 @@
             <div class="col-md">
                 <label>Categoria:</label>
                 <select name="categoria" class="form-control">
-                    <option>Listar Categorias</option>
+                    <% for(Categoria cat : listcategoria) {%>
+                    <option value="<%=cat.getId()%>"><%=cat.getNome()%></option>
+                    <%}%>
                 </select>
             </div>
 
             <div class="col-md">
                 <label>Subcategoria:</label>
                 <select name="subcategoria" class="form-control">
-                    <option>Listar Subcategorias</option>
+                    <% for(Subcategoria sub : listsubcategoria) {%>
+                    <option value="<%=sub.getId()%>"><%=sub.getNome()%></option>
+                    <%}%>
                 </select>
             </div>
 
             <div class="col-md">
                 <label>Fabricante:</label>
                 <select name="fabricante" class="form-control">
-                    <option>Listar Fabricante</option>
+                    <% for(Fabricante fb : listfabricante) {%>
+                    <option value="<%=fb.getId_fabricante()%>"><%=fb.getFabricante()%></option>
+                    <%}%>
                 </select>
             </div>
 
