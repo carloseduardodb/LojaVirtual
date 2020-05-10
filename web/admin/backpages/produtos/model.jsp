@@ -15,32 +15,10 @@
             imagem, destaque;
     acao = request.getParameter("acao");
 
-    if (acao.equals("cadastrar")) {
-
-        idcategoria = request.getParameter("id-categoria");
-        idsubcategoria = request.getParameter("id-subcategoria");
-        idfabricante = request.getParameter("id-fabricante");
-        produtonome = request.getParameter("produto-nome");
-        precoalto = request.getParameter("precoalto");
-        preco = request.getParameter("preco");
-        descricao = request.getParameter("descricao");
-        detalhes = request.getParameter("detalhes");
-        ativoproduto = request.getParameter("ativo-produto");
-        imagem = request.getParameter("imagem");
-        destaque = request.getParameter("destaque");
-
-        Produto produto = new Produto(Integer.parseInt(idcategoria),
-                Integer.parseInt(idsubcategoria), Integer.parseInt(idfabricante),
-                produtonome, Float.parseFloat(precoalto), Float.parseFloat(preco),
-                descricao, detalhes, ativoproduto, imagem, destaque);
-        ProdutosDAO produtosDAO = new ProdutosDAO();
-        Boolean cadastro = produtosDAO.create(produto);
-        response.sendRedirect("../../index.jsp?pagina=produtos&cadastrou=" + cadastro);
-
-    }else if (acao.equals("apagar")){
+    if (acao.equals("apagar")){
 
         ProdutosDAO produtosdao = new ProdutosDAO();
-        idproduto = request.getParameter("id-produto");
+        idproduto = request.getParameter("id");
         response.sendRedirect("../../index.jsp?pagina=produtos&apagou="
                 +produtosdao.delete(Integer.parseInt(idproduto)));
 
@@ -56,7 +34,7 @@
         descricao = request.getParameter("descricao");
         detalhes = request.getParameter("detalhes");
         ativoproduto = request.getParameter("ativo-produto");
-        imagem = request.getParameter("imagem");
+        imagem = request.getParameter("imagem").replace(" ", "_");
         destaque = request.getParameter("destaque");
 
         Produto produto = new Produto(Integer.parseInt(idproduto),
