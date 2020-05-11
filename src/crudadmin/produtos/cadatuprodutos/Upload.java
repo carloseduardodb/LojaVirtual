@@ -1,5 +1,7 @@
 package crudadmin.produtos.cadatuprodutos;
 
+import crudadmin.produtos.Produto;
+import crudadmin.produtos.ProdutosDAO;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUpload;
@@ -16,6 +18,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -23,6 +26,10 @@ import java.util.Map;
 
 @WebServlet(name = "/Upload", urlPatterns = "/Upload")
 public class Upload extends HttpServlet {
+
+    Timestamp dataDeHoje = new Timestamp(System.currentTimeMillis());
+    private String diretoriobd = "";
+    private String nomearquivo = ""+dataDeHoje;
 
     public void init() throws ServletException {
 
@@ -34,7 +41,6 @@ public class Upload extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         boolean isMultiPart = FileUpload.isMultipartContent(request);
-
         Map<String, String> dados = new HashMap<String, String>();
 
         if (isMultiPart) {
@@ -70,7 +76,7 @@ public class Upload extends HttpServlet {
                             if (!diretorio.exists()){
                                 diretorio.mkdir();
                             }
-
+                            diretoriobd = caminho;
                             String nome = item.getName();
                             String arq[] = nome.split("\\\\");
 
@@ -78,7 +84,14 @@ public class Upload extends HttpServlet {
                                 nome = arq[i];
                             }
 
-                            File file = new File(diretorio, nome);
+                            String extensao = nome.substring(nome.length()-4);
+                            nomearquivo = nomearquivo.replace("-", "").
+                                    replace(" ","").replace(":","").
+                                    replace(".","");
+
+                            nomearquivo = nomearquivo+extensao;
+
+                            File file = new File(diretorio, nomearquivo);
                             FileOutputStream output = new FileOutputStream(file);
                             InputStream is = item.getInputStream();
                             byte[] buffer = new byte[2048];
@@ -110,20 +123,20 @@ public class Upload extends HttpServlet {
 
     private void cadastrar(Map<String, String> dados){
         int id_produto, id_categoria, id_subcategoria, id_fabricante;
-        double preco_alto, preco;
+        float preco_alto, preco;
         String produto, descricao, detalhes, ativo_produto, imagem, destaque;
 
         id_categoria = Integer.parseInt(dados.get("id-categoria"));
         id_subcategoria = Integer.parseInt(dados.get("id-subcategoria"));
         id_fabricante = Integer.parseInt(dados.get("id-fabricante"));
-        preco_alto = Double.parseDouble(dados.get("precoalto"));
-        preco = Double.parseDouble(dados.get("preco"));
+        preco_alto = Float.parseFloat(dados.get("precoalto"));
+        preco = Float.parseFloat(dados.get("preco"));
         produto = dados.get("produto-nome");
         descricao = dados.get("descricao");
         detalhes = dados.get("detalhes");
         ativo_produto = dados.get("ativo-produto");
-        //imagem = dados.get("imagem");
-        //destaque = dados.get("destaque");
+        imagem = diretoriobd + "/"+nomearquivo;
+        destaque = "S";
 
         //POINTER
 
@@ -139,6 +152,11 @@ public class Upload extends HttpServlet {
         //System.out.println("----------X--"+imagem);
         //System.out.println("-----------X-"+destaque);
 
+        ProdutosDAO pddao = new ProdutosDAO();
+        Produto pd = new Produto(id_categoria, id_subcategoria,
+                id_fabricante, produto, preco_alto, preco, descricao,
+                detalhes, ativo_produto, imagem, destaque);
+        pddao.create(pd);
     }
 
 
