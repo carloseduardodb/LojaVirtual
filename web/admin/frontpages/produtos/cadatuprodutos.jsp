@@ -21,7 +21,7 @@
         <br/>
         <hr/>
     </div>
-    <form class="col-lg-9 col-xs-12" action="../src/util/Servlet.java" method="post" enctype="multipart/form-data" style="margin: 0 auto;">
+    <form class="col-lg-9 col-xs-12" action="../Upload" method="post" enctype="multipart/form-data" style="margin: 0 auto;">
 
         <input type="text" hidden name="id-produto" value="<%=id_produto%>">
         <input type="text" hidden name="acao" value="cadastrar">
@@ -72,7 +72,8 @@
 
             <div class="col-md">
                 <label>Envie uma Foto:</label>
-                <input type="file" name="imagem" size="50">
+                <input type="hidden" id="tipoForm" name="tipoForm" value="imagem">
+                <input name="imagem" type="file" accept="image/jpeg; image/gif; image/bmp; image/png" id="imagem" class="dados" maxlength="60" tabindex="1" value="c:/">
             </div>
         </div>
 
