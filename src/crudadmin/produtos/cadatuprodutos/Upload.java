@@ -71,7 +71,7 @@ public class Upload extends HttpServlet {
 
                         if (item.getName().length() > 0) {
 
-                            String caminho = this.getServletContext().getRealPath("admin/imgupload");
+                            String caminho = this.getServletContext().getRealPath("admin/imgupload") ;
                             File diretorio = new File(caminho);
                             if (!diretorio.exists()){
                                 diretorio.mkdir();
@@ -105,7 +105,6 @@ public class Upload extends HttpServlet {
 
                     }else{
                         String Nomeevalor = "Nome: "+item.getFieldName() + "  Valor:"+item.getString();
-                        System.out.println("XXXXXXXXXXXXXXXXXXXX"+Nomeevalor);
                         dados.put(item.getFieldName(), item.getString());
                     }
 
@@ -135,21 +134,9 @@ public class Upload extends HttpServlet {
         descricao = dados.get("descricao");
         detalhes = dados.get("detalhes");
         ativo_produto = dados.get("ativo-produto");
-        imagem = diretoriobd + "/"+nomearquivo;
-        destaque = "S";
+        imagem = nomearquivo;
+        destaque = dados.get("destaque");
 
-        //POINTER
-
-        System.out.println("-X-----------"+id_categoria);
-        System.out.println("--X----------"+id_subcategoria);
-        System.out.println("---X---------"+id_fabricante);
-        System.out.println("----X--------"+preco_alto);
-        System.out.println("-----X-------"+preco);
-        System.out.println("------X------"+produto);
-        System.out.println("-------X-----"+descricao);
-        System.out.println("--------X----"+detalhes);
-        System.out.println("---------X---"+ativo_produto);
-        //System.out.println("----------X--"+imagem);
         //System.out.println("-----------X-"+destaque);
 
         ProdutosDAO pddao = new ProdutosDAO();
@@ -158,6 +145,4 @@ public class Upload extends HttpServlet {
                 detalhes, ativo_produto, imagem, destaque);
         pddao.create(pd);
     }
-
-
 }

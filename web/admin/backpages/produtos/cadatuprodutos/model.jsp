@@ -38,26 +38,13 @@
         response.sendRedirect("../../../index.jsp?pagina=produtoscadatu");
     }
 
-    if("cadastrar".equals(request.getParameter("acao"))){
+    if("editar".equals(request.getParameter("acao"))){
+        ProdutosDAO pdao = new ProdutosDAO();
+        List<Produto> produto = pdao.read("SELECT * FROM " +
+                "produto WHERE id_produto = "+request.getParameter("id"));
+        session.removeAttribute("produtoaeditar");
+        session.setAttribute("produtoaediatar", produto);
 
-        idcategoria = request.getParameter("id-categoria").toString();
-        idsubcategoria = request.getParameter("id-subcategoria").toString();
-        idfabricante = request.getParameter("id-fabricante").toString();
-        produtonome = request.getParameter("produto-nome").toString();
-        precoalto = request.getParameter("precoalto").toString();
-        preco = request.getParameter("preco").toString();
-        descricao = request.getParameter("descricao").toString();
-        detalhes = request.getParameter("detalhes").toString();
-        ativoproduto = request.getParameter("ativo-produto").toString();
-        imagem = " aa";//request.getParameter("imagem").replace(" ", "_");
-        destaque = "S";
-
-        Produto produto = new Produto(Integer.parseInt(idcategoria),
-                Integer.parseInt(idsubcategoria), Integer.parseInt(idfabricante),
-                produtonome, Float.parseFloat(precoalto), Float.parseFloat(preco),
-                descricao, detalhes, ativoproduto, imagem, destaque);
-        ProdutosDAO produtosDAO = new ProdutosDAO();
-        Boolean cadastro = produtosDAO.create(produto);
-        response.sendRedirect("../../index.jsp?pagina=produtos&cadastrou=" + cadastro);
+        response.sendRedirect("../../../index.jsp?pagina=produtoscadatu");
     }
 %>

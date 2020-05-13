@@ -44,7 +44,7 @@
                 <td style="max-width: 30ch;"><%=pd.getProduto()%></td>
                 <td><%=pd.getPreco()%></td>
                 <td>
-                    <button class="acao btn"><img src="img/editar.png" width="15px" height="15px"></button>
+                    <button class="acao btn" onclick="location.href ='backpages/produtos/model.jsp?acao=editar&id=<%=pd.getId_produto()%>'" ><img src="img/editar.png" width="15px" height="15px"></button>
                     <button class="acao btn" onclick="location.href='backpages/produtos/model.jsp?acao=apagar&id=<%=pd.getId_produto()%>'"><img src="img/apagar.png" width="15px" height="15px"></button>
                 </td>
             </tr>
