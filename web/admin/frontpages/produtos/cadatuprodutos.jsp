@@ -5,16 +5,15 @@
     String produto = "", precoalto = "", preco = "",
             descricao = "", detalhes = "", ativoproduto = "",
             imagem = "", destaque = "", requisicao = "../Cadastro", botao = "Cadastrar";
-    int categoria = -1, subcategoria = -1, fabricante = -1;
+    int categoria = -1, subcategoria = -1, fabricante = -1, id_produto = -1;
 
     List<Categoria> listcategoria = (List<Categoria>) session.getAttribute("dadoscat");
     List<Subcategoria> listsubcategoria = (List<Subcategoria>) session.getAttribute("dadossub");
     List<Fabricante> listfabricante = (List<Fabricante>) session.getAttribute("dadosfab");
 
-    String id_produto = "";
-
     if (session.getAttribute("dadosprodutoeditado") != null) {
         List<Produto> ltpd = (List<Produto>) session.getAttribute("dadosprodutoeditado");
+        id_produto = ltpd.get(0).getId_produto();
         produto = ltpd.get(0).getProduto();
         precoalto = ""+ltpd.get(0).getPreco_alto();
         preco = ""+ltpd.get(0).getPreco();
