@@ -99,7 +99,7 @@
             <div class="col-md">
                 <label>Envie uma Foto:</label>
                 <input type="hidden" id="tipoForm" name="tipoForm" value="imagem">
-                <input name="imagem" type="file" accept="image/jpeg; image/gif; image/bmp; image/png" id="imagem" class="dados" maxlength="60" tabindex="1" value="c:/">
+                <input name="imagem" type="file" accept="image/jpeg; image/gif; image/bmp; image/png" id="imagem" class="dados" maxlength="60" tabindex="1" value="<%=imagem%>">
             </div>
         </div>
 
