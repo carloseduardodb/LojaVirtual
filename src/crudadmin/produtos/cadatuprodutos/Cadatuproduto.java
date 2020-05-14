@@ -1,5 +1,6 @@
 package crudadmin.produtos.cadatuprodutos;
 
+//utilizo essa classe pra tornar um objeto os ids e nomes de categoria subcategoria e fabricante
 public class Cadatuproduto {
     private int id_categoria;
     private String categoria;

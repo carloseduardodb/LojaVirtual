@@ -19,6 +19,7 @@
             produtonome, precoalto, preco, descricao, detalhes, ativoproduto,
             imagem, destaque;
 
+    // Esses dados são enviados para view do cadastro e atualização de produtos
     if ("visualizar".equals(request.getParameter("acao"))) {
 
         CadatuprodutosDAO cadatuprodutosDAO = new CadatuprodutosDAO();
@@ -34,16 +35,6 @@
         session.setAttribute("dadoscat", dadoscat);
         session.setAttribute("dadossub", dadossub);
         session.setAttribute("dadosfab", dadosfab);
-
-        response.sendRedirect("../../../index.jsp?pagina=produtoscadatu");
-    }
-
-    if("editar".equals(request.getParameter("acao"))){
-        ProdutosDAO pdao = new ProdutosDAO();
-        List<Produto> produto = pdao.read("SELECT * FROM " +
-                "produto WHERE id_produto = "+request.getParameter("id"));
-        session.removeAttribute("produtoaeditar");
-        session.setAttribute("produtoaediatar", produto);
 
         response.sendRedirect("../../../index.jsp?pagina=produtoscadatu");
     }

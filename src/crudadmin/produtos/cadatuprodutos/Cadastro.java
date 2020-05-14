@@ -24,8 +24,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet(name = "/Upload", urlPatterns = "/Upload")
-public class Upload extends HttpServlet {
+@WebServlet(name = "/Cadastro", urlPatterns = "/Cadastro")
+public class Cadastro extends HttpServlet {
 
     Timestamp dataDeHoje = new Timestamp(System.currentTimeMillis());
     private String diretoriobd = "";

@@ -53,10 +53,15 @@
 
     }else if(acao.equals("editar")){
 
+        /*quando eu edito preciso dos dados para preencher os
+        * select da view entao encaminho a resposta da requisicao
+        * para cadatuproduto para trazer os dados
+        * */
+
         List<Produto> edtproduto = pddao.read("SELECT * FROM produto WHERE id_produto = "+request.getParameter("id-produto"));
         session.removeAttribute("dadosprodutoeditado");
         session.setAttribute("dadosprodutoeditado", edtproduto);
-        response.sendRedirect("../../index.jsp?pagina=produtoscadatu");
+        response.sendRedirect("cadatuprodutos/model.jsp?acao=visualizar");
 
     }
 %>

@@ -2,7 +2,9 @@
 <%@ page import="crudadmin.subcategorias.Subcategoria" %>
 <%@ page import="crudadmin.fabricante.Fabricante" %>
 <%
-    String produto = "", precoalto = "", preco = "", descricao = "", detalhes = "", ativoproduto = "", imagem = "", destaque = "";
+    String produto = "", precoalto = "", preco = "",
+            descricao = "", detalhes = "", ativoproduto = "",
+            imagem = "", destaque = "", requisicao = "../Cadastro", botao = "Cadastrar";
     int categoria = -1, subcategoria = -1, fabricante = -1;
 
     List<Categoria> listcategoria = (List<Categoria>) session.getAttribute("dadoscat");
@@ -11,8 +13,8 @@
 
     String id_produto = "";
 
-    if (session.getAttribute("produtoaediatar") != null) {
-        List<Produto> ltpd = (List<Produto>) session.getAttribute("produtoaeditar");
+    if (session.getAttribute("dadosprodutoeditado") != null) {
+        List<Produto> ltpd = (List<Produto>) session.getAttribute("dadosprodutoeditado");
         produto = ltpd.get(0).getProduto();
         precoalto = ""+ltpd.get(0).getPreco_alto();
         preco = ""+ltpd.get(0).getPreco();
@@ -24,6 +26,9 @@
         categoria = ltpd.get(0).getId_categoria();
         subcategoria = ltpd.get(0).getId_subcategoria();
         fabricante = ltpd.get(0).getId_fabricante();
+        requisicao = "../Atualizacao";
+        botao = "Atualizar";
+        session.removeAttribute("dadosprodutoeditado");
     }
 %>
 
@@ -34,7 +39,7 @@
         <br/>
         <hr/>
     </div>
-    <form class="col-lg-9 col-xs-12" action="../Upload" method="post" enctype="multipart/form-data" style="margin: 0 auto;">
+    <form class="col-lg-9 col-xs-12" action="<%=requisicao%>" method="post" enctype="multipart/form-data" style="margin: 0 auto;">
 
         <input type="text" hidden name="id-produto" value="<%=id_produto%>">
         <input type="text" hidden name="acao" value="cadastrar">
@@ -114,21 +119,22 @@
 
         <br/>
 
+        <input value="<%=descricao%>" hidden id="ocldescricao">
         <div class="form-group">
             <label>Descrição:</label>
-            <textarea name="descricao" class="form-control" value="<%=descricao%>" id="editor1" rows="10" cols="80">
+            <textarea name="descricao" class="form-control" id="descricao" rows="10" cols="80">
         </textarea>
         </div>
 
         <br/>
-
+        <input value="<%=detalhes%>" hidden id="ocldetalhes">
         <div class="form-group">
             <label>Detalhes:</label>
-            <textarea class="form-control" name="detalhes" value="<%=detalhes%>" id="editor2" rows="10" cols="80">
+            <textarea class="form-control" name="detalhes" id="detalhes" rows="10" cols="80">
         </textarea>
         </div>
         <div class="col text-center">
-            <button type="submit" id="btn-cadastrar" class="btn">Cadastrar</button>
+            <button type="submit" id="btn-cadastrar" class="btn"><%=botao%></button>
         </div>
     </form>
 </div>
@@ -137,7 +143,14 @@
     // Replace the <textarea id="editor1"> with a CKEditor
     // instance, using default configuration.
     CKEDITOR.config.height = 100;
-    CKEDITOR.replace('editor1');
-    CKEDITOR.replace('editor2');
+
+    var descricao = CKEDITOR.replace('descricao');
+    var detalhes = CKEDITOR.replace('detalhes');
+
+    var ocldescricao = document.getElementById("ocldescricao");
+    var ocldetalhes = document.getElementById("ocldetalhes");
+
+    descricao.setData(ocldescricao.getAttribute("value"));
+    detalhes.setData(ocldetalhes.getAttribute("value"));
 
 </script>

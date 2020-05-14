@@ -15,6 +15,8 @@ import java.util.List;
 
 public class CadatuprodutosDAO {
 
+    //aqui eu chamo os dados do banco pra adicionar ao objeto
+    // cadatuproduto e poder percorrer ele na view
     public List<Categoria> readcategoria(){
         String sql = "SELECT categoria, id_categoria FROM categoria;";
 
