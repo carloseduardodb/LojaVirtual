@@ -1,5 +1,8 @@
-package crudadmin.slideshow;
+package crudadmin.venda;
+
 import connection.ConnectionDatabase;
+import crudadmin.categorias.Categoria;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,9 +10,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SlideshowDAO {
+public class VendaDAO {
 
-    public Boolean create(Slideshow s) {
+
+    public Boolean create(Venda v) {
         Boolean cadastrou;
 
         Connection con = ConnectionDatabase.getConnection();
@@ -17,13 +21,13 @@ public class SlideshowDAO {
 
         try {
             stmt = con.prepareStatement("INSERT INTO " +
-                    "slideshow (id_slideshow, titulo, imagem, url, ativo) " +
+                    "venda (id_venda, id_cliente, data_venda, pago, forma_pagamento) " +
                     "VALUES (?,?,?,?,?)");
-            stmt.setInt(1, s.getId_slideshow());
-            stmt.setString(2, s.getTitulo());
-            stmt.setString(3, s.getImagem());
-            stmt.setString(4, s.getUrl());
-            stmt.setString(5, s.getAtivo());
+            stmt.setInt(1, v.getId_venda());
+            stmt.setInt(2, v.getId_cliente());
+            stmt.setDate(3, v.getData_venda());
+            stmt.setString(4, v.getPago());
+            stmt.setString(5, v.getForma_pagamento());
             stmt.executeUpdate();
             cadastrou = true;
         } catch (SQLException throwables) {
@@ -36,12 +40,12 @@ public class SlideshowDAO {
         return cadastrou;
     }
 
-    public List<Slideshow> read(String sql){
+    public List<Venda> read(String sql){
         Connection con = ConnectionDatabase.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        List<Slideshow> slidcat = new ArrayList<>();
+        List<Venda> listvend = new ArrayList<>();
 
         try {
             System.out.println("**********************************"+sql);
@@ -49,12 +53,12 @@ public class SlideshowDAO {
             rs = stmt.executeQuery();
 
             while(rs.next()){
-                Slideshow slideshow = new Slideshow(rs.getInt("id_categoria"),
-                        rs.getString("titulo"),
-                        rs.getString("imagem"),
-                        rs.getString("url"),
-                        rs.getString("ativo"));
-                slidcat.add(slideshow);
+                Venda venda = new Venda(rs.getInt("id_venda"),
+                        rs.getInt("id_cliente"),
+                        rs.getDate("data_venda"),
+                        rs.getString("pago"),
+                        rs.getString("forma_pagamento"));
+                listvend.add(venda);
             }
 
         } catch (SQLException throwables) {
@@ -62,7 +66,8 @@ public class SlideshowDAO {
         }finally {
             ConnectionDatabase.closeConnection(con, stmt, rs);
         }
-        return slidcat;
+
+        return listvend;
     }
 
     public Boolean delete(Integer id){
@@ -71,7 +76,7 @@ public class SlideshowDAO {
         PreparedStatement stmt = null;
 
         try{
-            stmt = con.prepareStatement("DELETE FROM slideshow WHERE id_slideshow = ?");
+            stmt = con.prepareStatement("DELETE FROM venda WHERE id_venda = ?");
             stmt.setInt(1, id);
             stmt.executeUpdate();
             apagou = true;
@@ -82,20 +87,20 @@ public class SlideshowDAO {
         return apagou;
     }
 
-    public Boolean update(Slideshow s){
+    public Boolean update(Venda v){
 
         Boolean atualizou;
         Connection con = ConnectionDatabase.getConnection();
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("UPDATE slideshow SET titulo = ?, " +
-                    "imagem = ?, url = ?, ativo = ? WHERE id_slideshow = ?;");
-            stmt.setString(1, s.getTitulo());
-            stmt.setString(2, s.getImagem());
-            stmt.setString(3, s.getUrl());
-            stmt.setString(4, s.getAtivo());
-            stmt.setInt(5, s.getId_slideshow());
+            stmt = con.prepareStatement("UPDATE venda SET id_cliente = ?, " +
+                    "data_venda = ?, pago = ?, forma_pagamento = ? WHERE id_venda = ?;");
+            stmt.setInt(1, v.getId_cliente());
+            stmt.setDate(2, v.getData_venda());
+            stmt.setString(3, v.getPago());
+            stmt.setString(4, v.getForma_pagamento());
+            stmt.setInt(5, v.getId_venda());
 
             stmt.executeUpdate();
             atualizou = true;
@@ -106,6 +111,7 @@ public class SlideshowDAO {
         } finally {
             ConnectionDatabase.closeConnection(con, stmt);
         }
+
         return atualizou;
     }
 
