@@ -75,10 +75,15 @@
 <%@include file="frontpages/store/store.jsp"%>
 
 <%} else if(pagina.equals("login")){%>
+
 <%@include file="frontpages/login/login.jsp"%>
+
 <%}else if(pagina.equals("cadastro")){%>
+
 <%@include file="frontpages/cadastro/cadastro.jsp"%>
+
 <%}%>
+
 <%@include file="frontpages/recebanovasofertas/recebanovasofertas.jsp"%>
 <%@include file="frontpages/footer/footer.jsp"%>
 
