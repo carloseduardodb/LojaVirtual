@@ -8,16 +8,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- NEWSLETTER -->
 <div id="newsletter" class="section">
+    <div style="height: 25px;"></div>
     <!-- container -->
     <div class="container">
         <!-- row -->
         <div class="row">
             <div class="col-md-12">
                 <div class="newsletter">
-                    <p>Sign Up for the <strong>NEWSLETTER</strong></p>
+                    <p>Cadastre-se para receber <strong>NOVAS OFERTAS</strong></p>
                     <form>
-                        <input class="input" type="email" placeholder="Enter Your Email">
-                        <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
+                        <input class="input" type="email" placeholder="Digite Seu Email">
+                        <button class="newsletter-btn"><i class="fa fa-envelope"></i> Inscrever</button>
                     </form>
                     <ul class="newsletter-follow">
                         <li>

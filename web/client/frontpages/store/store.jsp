@@ -7,6 +7,12 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<style>
+    .section{
+        padding-top: 0;
+    }
+</style>
+
 <!-- BREADCRUMB -->
 <div id="breadcrumb" class="section">
     <!-- container -->

@@ -3,6 +3,9 @@ package crudclient.cliente;
 public class Cliente {
     private int id_cliente;
 
+    public Cliente() {
+    }
+
     private String tipo, empresa, contato, cnpj,
             incest, cliente, cpf, rg, endereco, numero,
             complemento, bairro, cidade, uf, cep,
