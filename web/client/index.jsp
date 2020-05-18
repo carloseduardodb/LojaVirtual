@@ -69,7 +69,7 @@
 <div style="height: 25px;"></div>
 <%@include file="frontpages/produtossemelhantes/produtossemelhantes.jsp"%>
 
-<%}else if(pagina.equals("checkout")){%>
+<%}else if(pagina.equals("checkout")){%>a
 
 <%@include file="frontpages/checkout/checkout.jsp"%>
 
