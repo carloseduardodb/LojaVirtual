@@ -107,6 +107,39 @@ public class Listagem {
         return listdadosprodutoslist;
     }
 
+    public List<DadosProdutosList> readdadosprodutoslistcat(String sql){
+        Connection con = ConnectionDatabase.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<DadosProdutosList> listdadosprodutoslistcat = new ArrayList<>();
+
+        try {
+            System.out.println("**********************************"+sql);
+            stmt = con.prepareStatement(sql);
+            rs = stmt.executeQuery();
+
+            while(rs.next()){
+                DadosProdutosList dadosProdutosListcat = new DadosProdutosList(
+                        rs.getInt("id_produto"),
+                        rs.getString("produto"),
+                        rs.getString("preco_alto"),
+                        rs.getString("preco"),
+                        rs.getString("categoria"),
+                        rs.getString("fabricante"),
+                        rs.getString("imagem"),
+                        rs.getString("subcategoria"));
+                listdadosprodutoslistcat.add(dadosProdutosListcat);
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            ConnectionDatabase.closeConnection(con, stmt, rs);
+        }
+        return listdadosprodutoslistcat;
+    }
+
     public List<Subcategoria> readsubcategoria(){
         String sql = "SELECT subcategoria, id_subcategoria FROM subcategoria;";
 

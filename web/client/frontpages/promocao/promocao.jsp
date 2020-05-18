@@ -18,31 +18,31 @@
                         <li>
                             <div>
                                 <h3>02</h3>
-                                <span>Days</span>
+                                <span>Dias</span>
                             </div>
                         </li>
                         <li>
                             <div>
                                 <h3>10</h3>
-                                <span>Hours</span>
+                                <span>Horas</span>
                             </div>
                         </li>
                         <li>
                             <div>
                                 <h3>34</h3>
-                                <span>Mins</span>
+                                <span>Minutos</span>
                             </div>
                         </li>
                         <li>
                             <div>
                                 <h3>60</h3>
-                                <span>Secs</span>
+                                <span>Segundos</span>
                             </div>
                         </li>
                     </ul>
-                    <h2 class="text-uppercase">hot deal this week</h2>
-                    <p>New Collection Up to 50% OFF</p>
-                    <a class="primary-btn cta-btn" href="#">Shop now</a>
+                    <h2 class="text-uppercase">queima de estoque</h2>
+                    <p>Nova Coleção de Hardwares 50% OFF</p>
+                    <a class="primary-btn cta-btn" href="#">Avise-me</a>
                 </div>
             </div>
         </div>
