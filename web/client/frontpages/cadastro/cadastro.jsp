@@ -28,8 +28,8 @@
     }
 
     .fundo {
-        background: url(img/fundoregister.svg) right no-repeat;
-        background-size: 45vw;
+        background: url(img/fundoregister.svg) right center no-repeat;
+        background-size: 50vw;
     }
 
 </style>
@@ -96,7 +96,7 @@
                         <input class="input" type="text" name="cep" placeholder="CEP">
                     </div>
                     <div class="form-group">
-                        <input class="input" type="tel" name="telelefone" placeholder="Telefone">
+                        <input class="input" type="tel" name="telefone" placeholder="Telefone">
                     </div>
                     <div class="form-group">
                         <input class="input" type="password" name="senha" placeholder="Senha">

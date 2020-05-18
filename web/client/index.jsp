@@ -1,3 +1,9 @@
+<%@ page import="crudclient.cliente.Cliente" %>
+<%@ page import="java.util.List" %>
+<%
+
+
+%>
 <%--
   Created by IntelliJ IDEA.
   User: Carlos
@@ -6,10 +12,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%
-    String pagina = "";
-    if(request.getParameterMap().containsKey("pagina")){
-        pagina = request.getParameter("pagina");
-    }
+    String pagina = ""+request.getParameter("pagina");
 %>
 
 <!DOCTYPE html>
@@ -53,7 +56,7 @@
 <body>
 
 <%@include file="frontpages/navbar/navbar.jsp"%>
-<% if(pagina.equals("home") || pagina.equals("")){%>
+<% if(pagina.equals("home") || pagina.equals("null")){%>
 
 <%@include file="frontpages/destaquecategoria/destaquecategoria.jsp"%>
 <%@include file="frontpages/novosprodutos/novosprodutos.jsp"%>
