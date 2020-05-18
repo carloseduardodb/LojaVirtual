@@ -122,7 +122,7 @@
 <!-- /BREADCRUMB -->
 <div class="fundo">
 <div class="login-form">
-    <form action="/examples/actions/confirmation.php" method="post">
+    <form action="backpages/usuario/model.jsp" method="get">
         <h2 class="text-center">Login</h2>
         <div class="text-center social-btn">
             <a href="#" class="btn btn-danger btn-block"><i class="fa fa-plus-circle"></i> Não tem uma conta? <b>Cadastre-se!</b></a>
@@ -131,6 +131,7 @@
         <div class="form-group">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <input name="acao" value="login" hidden>
                 <input type="text" class="form-control" name="email" placeholder="Email" required="required">
             </div>
         </div>

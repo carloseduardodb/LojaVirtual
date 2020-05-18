@@ -12,22 +12,22 @@
         padding-top: 0px;
     }
 
-    .btn-success{
+    .btn-success {
         font-size: 13pt;
         background-color: #9477ff;
         border: none;
     }
 
-    .btn-success:hover{
+    .btn-success:hover {
         background: linear-gradient(#9477ff, #765ae0);
     }
 
-    .btn-submit{
+    .btn-submit {
         margin-top: 25px;
         text-align: center;
     }
 
-    .fundo{
+    .fundo {
         background: url(img/fundoregister.svg) right no-repeat;
         background-size: 45vw;
     }
@@ -59,13 +59,14 @@
     <div class="container">
         <!-- row -->
         <div class="row">
-            <form method="GET">
+            <form method="POST" action="backpages/usuario/model.jsp">
                 <div class="col-md-7">
                     <div class="form-group">
-                        <input class="input" type="text" name="first-name" placeholder="Primeiro Nome">
+                        <input hidden name="acao" value="cadastrar">
+                        <input class="input" type="text" name="nome" placeholder="Primeiro Nome">
                     </div>
                     <div class="form-group">
-                        <input class="input" type="text" name="last-name" placeholder="Último Nome">
+                        <input class="input" type="text" name="sobrenome" placeholder="Último Nome">
                     </div>
                     <div class="form-group">
                         <input class="input" type="email" name="email" placeholder="Email">
@@ -74,32 +75,41 @@
                         <input class="input" type="number" name="cpf" placeholder="CPF">
                     </div>
                     <div class="form-group">
-                        <input class="input" type="text" name="address" placeholder="Endereço">
+                        <input class="input" type="text" name="endereco" placeholder="Endereço">
                     </div>
                     <div class="form-group">
-                        <input class="input" type="text" name="city" placeholder="Cidade">
+                        <input class="input" type="text" name="bairro" placeholder="Bairro">
                     </div>
                     <div class="form-group">
-                        <input class="input" type="text" name="country" placeholder="UF">
+                        <input class="input" type="text" name="numero" placeholder="Número">
                     </div>
                     <div class="form-group">
-                        <input class="input" type="text" name="zip-code" placeholder="CEP">
+                        <input class="input" type="text" name="complemento" placeholder="Complemento">
                     </div>
                     <div class="form-group">
-                        <input class="input" type="tel" name="tel" placeholder="Telefone">
+                        <input class="input" type="text" name="cidade" placeholder="Cidade">
                     </div>
                     <div class="form-group">
-                        <input class="input" type="password" name="password" placeholder="Senha">
+                        <input class="input" type="text" name="uf" placeholder="UF">
                     </div>
                     <div class="form-group">
-                        <input class="input" type="password" name="password" placeholder="Repita sua senha">
+                        <input class="input" type="text" name="cep" placeholder="CEP">
+                    </div>
+                    <div class="form-group">
+                        <input class="input" type="tel" name="telelefone" placeholder="Telefone">
+                    </div>
+                    <div class="form-group">
+                        <input class="input" type="password" name="senha" placeholder="Senha">
+                    </div>
+                    <div class="form-group">
+                        <input class="input" type="password" name="rpsenha" placeholder="Repita sua senha">
                     </div>
                     <div class="btn-submit">
                         <button type="submit" class="btn btn-success" onclick="">Cadastrar</button>
                     </div>
                 </div>
+            </form>
         </div>
-        </form>
     </div>
     <!-- /container -->
 </div>

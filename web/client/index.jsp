@@ -83,8 +83,9 @@
 <%@include file="frontpages/cadastro/cadastro.jsp"%>
 
 <%}%>
-
+<%if(!pagina.equals("cadastro")){%>
 <%@include file="frontpages/recebanovasofertas/recebanovasofertas.jsp"%>
+<%}%>
 <%@include file="frontpages/footer/footer.jsp"%>
 
 <script src="js/jquery.min.js"></script>
