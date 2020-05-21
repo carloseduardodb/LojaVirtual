@@ -10,15 +10,17 @@
 
     List<DadosProdutosList> dadosprodutoslistcategorias = null;
     List<DadosProdutosList> dadosprodutossubcategorias = null;
+    List<DadosProdutosList> dadosprodutoslistfabricante = null;
 
     if(session.getAttribute("listultimascategorias") != null){
         dadosprodutoslistcategorias = (List<DadosProdutosList>) session.getAttribute("listultimascategorias");
         dadosprodutossubcategorias = (List<DadosProdutosList>) session.getAttribute("listultimassubcategorias");
+        dadosprodutoslistfabricante = (List<DadosProdutosList>) session.getAttribute("listultimasfabricante");
     }
 
 %>
 
-<div class="section">
+<div class="section mais-vendidos-all">
     <!-- container -->
     <div class="container">
         <!-- row -->
@@ -95,84 +97,22 @@
                 <div class="products-widget-slick" data-nav="#slick-nav-5">
                     <div>
                         <!-- product widget -->
+                        <% if(dadosprodutoslistfabricante!=null) { int i = 0;%>
+                        <% for(DadosProdutosList dplfab: dadosprodutoslistfabricante) { i++; if(i<=3){%>
                         <div class="product-widget">
                             <div class="product-img">
-                                <img src="./img/product01.png" alt="">
+                                <img src="./img/<%=dplfab.getImagem()%>" alt="">
                             </div>
                             <div class="product-body">
-                                <p class="product-category">Category</p>
-                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                                <p class="product-category"><%=dplfab.getFabricante()%></p>
+                                <h3 class="product-name"><a href="#"><%=dplfab.getNome()%></a></h3>
+                                <h4 class="product-price">R$<%=dplfab.getPreco()%> <del class="product-old-price">R$<%=dplfab.getPreco_alto()%></del></h4>
                             </div>
                         </div>
+                        <%}}}%>
                         <!-- /product widget -->
-
-                        <!-- product widget -->
-                        <div class="product-widget">
-                            <div class="product-img">
-                                <img src="./img/product02.png" alt="">
-                            </div>
-                            <div class="product-body">
-                                <p class="product-category">Category</p>
-                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                            </div>
-                        </div>
-                        <!-- /product widget -->
-
-                        <!-- product widget -->
-                        <div class="product-widget">
-                            <div class="product-img">
-                                <img src="./img/product03.png" alt="">
-                            </div>
-                            <div class="product-body">
-                                <p class="product-category">Category</p>
-                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                            </div>
-                        </div>
-                        <!-- product widget -->
                     </div>
 
-                    <div>
-                        <!-- product widget -->
-                        <div class="product-widget">
-                            <div class="product-img">
-                                <img src="./img/product04.png" alt="">
-                            </div>
-                            <div class="product-body">
-                                <p class="product-category">Category</p>
-                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                            </div>
-                        </div>
-                        <!-- /product widget -->
-
-                        <!-- product widget -->
-                        <div class="product-widget">
-                            <div class="product-img">
-                                <img src="./img/product05.png" alt="">
-                            </div>
-                            <div class="product-body">
-                                <p class="product-category">Category</p>
-                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                            </div>
-                        </div>
-                        <!-- /product widget -->
-
-                        <!-- product widget -->
-                        <div class="product-widget">
-                            <div class="product-img">
-                                <img src="./img/product06.png" alt="">
-                            </div>
-                            <div class="product-body">
-                                <p class="product-category">Category</p>
-                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                            </div>
-                        </div>
-                        <!-- product widget -->
                     </div>
                 </div>
             </div>

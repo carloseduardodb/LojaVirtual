@@ -1,11 +1,14 @@
-<%@ page import="crudadmin.categorias.Categoria" %><%--
+<%@ page import="crudadmin.categorias.Categoria" %>
+<%@ page import="crudadmin.fabricante.Fabricante" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.google.gson.Gson" %><%--
   Created by IntelliJ IDEA.
   User: Carlos
   Date: 16/05/2020
   Time: 07:24
 --%>
 <%
-    String telefone = "", email = "", endereco = "";
+    String telefone = "", email = "", endereco = "", fabricantejson ="";
     List<Cliente> cl = (List<Cliente>) session.getAttribute("cliente");
     if (session.getAttribute("cliente") != null) {
         telefone = ""+cl.get(0).getFone1();
@@ -18,11 +21,21 @@
     }else{
         lc = (List<Categoria>) session.getAttribute("categoria");
     }
+
+    List<Fabricante> ltfb = null;
+
+    if(session.getAttribute("jsonfabricante") != null){
+        ltfb = (List<Fabricante>) session.getAttribute("jsonfabricante");
+        fabricantejson = new Gson().toJson(ltfb);
+    }
 %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- HEADER -->
 <header>
+
+    <input id="fabjson" value='<%=fabricantejson%>' hidden>
+
     <!-- TOP HEADER -->
     <%if (session.getAttribute("cliente") != null) {%>
     <div id="top-header">
@@ -69,16 +82,16 @@
                 <!-- SEARCH BAR -->
                 <div class="col-md-6">
                     <div class="header-search">
-                        <form>
-                            <select class="input-select">
+                        <form id="form-pesquisa" action="../store" method="post">
+                            <select class="input-select" id="option-cat">
                                 <option value="0">Todas Categorias</option>
                                 <% if(lc != null){%>
                                 <% for(Categoria c : lc) {%>
                                 <option value="<%=c.getId()%>"><%=c.getNome()%></option>
                                 <%}}%>
                             </select>
-                            <input style="width: 175px" class="input" placeholder="Procure aqui">
-                            <button class="search-btn">Pesquisar</button>
+                            <input style="width: 175px" id="pesquisa" name="pesquisa" class="input" placeholder="Procure aqui">
+                            <button class="search-btn" type="submit">Pesquisar</button>
                         </form>
                     </div>
                 </div>
@@ -181,3 +194,5 @@
     <!-- /container -->
 </nav>
 <!-- /NAVIGATION -->
+
+<div id="especial"></div>

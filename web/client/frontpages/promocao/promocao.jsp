@@ -9,7 +9,7 @@
 <!-- HOT DEAL SECTION -->
 <div id="hot-deal" class="section">
     <!-- container -->
-    <div class="container">
+    <div class="container bloco-promocao">
         <!-- row -->
         <div class="row">
             <div class="col-md-12">

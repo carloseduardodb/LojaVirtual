@@ -16,7 +16,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!-- SECTION -->
-<div class="section">
+<div class="section bloco-destaque-categoria">
     <!-- container -->
     <div class="container">
         <!-- row -->

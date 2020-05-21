@@ -17,7 +17,7 @@
 
 %>
 
-<div class="section">
+<div class="section bloco-novos-produtos">
     <!-- container -->
     <div class="container">
         <!-- row -->

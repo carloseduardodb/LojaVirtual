@@ -6,6 +6,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%
+    List<Categoria> dcs = null;
+    if(session.getAttribute("categoria")!=null){
+        dcs = (List<Categoria>) session.getAttribute("categoria");
+    }
+%>
+
 <!-- FOOTER -->
 <footer id="footer">
     <!-- top footer -->
@@ -16,25 +24,24 @@
             <div class="row">
                 <div class="col-md-3 col-xs-6">
                     <div class="footer">
-                        <h3 class="footer-title">About Us</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+                        <h3 class="footer-title">Sobre nós</h3>
+                        <p>A Loja Virtual é uma empresa solidificada no mercado e vendemos produtos a 10 anos.</p>
                         <ul class="footer-links">
-                            <li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
-                            <li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-                            <li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+                            <li><a href="#"><i class="fa fa-map-marker"></i>Dom Otto Motta, 526</a></li>
+                            <li><a href="#"><i class="fa fa-phone"></i>+055-35-998754898</a></li>
+                            <li><a href="#"><i class="fa fa-envelope-o"></i>carlosdev@gmail.com</a></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-md-3 col-xs-6">
                     <div class="footer">
-                        <h3 class="footer-title">Categories</h3>
+                        <h3 class="footer-title">Categorias</h3>
                         <ul class="footer-links">
-                            <li><a href="#">Hot deals</a></li>
-                            <li><a href="#">Laptops</a></li>
-                            <li><a href="#">Smartphones</a></li>
-                            <li><a href="#">Cameras</a></li>
-                            <li><a href="#">Accessories</a></li>
+                            <% if(dcs!=null) {%>
+                            <% for(Categoria ctg : dcs) {%>
+                            <li><a href="#"><%=ctg.getNome()%></a></li>
+                            <%}}%>
                         </ul>
                     </div>
                 </div>
@@ -43,26 +50,26 @@
 
                 <div class="col-md-3 col-xs-6">
                     <div class="footer">
-                        <h3 class="footer-title">Information</h3>
+                        <h3 class="footer-title">Informações</h3>
                         <ul class="footer-links">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Orders and Returns</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Sobre</a></li>
+                            <li><a href="#">Contate-nos</a></li>
+                            <li><a href="#">Privacidade e Segurança</a></li>
+                            <li><a href="#">Encomendas e Devoluções</a></li>
+                            <li><a href="#">Termos e Condições</a></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-md-3 col-xs-6">
                     <div class="footer">
-                        <h3 class="footer-title">Service</h3>
+                        <h3 class="footer-title">Serviço</h3>
                         <ul class="footer-links">
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">View Cart</a></li>
-                            <li><a href="#">Wishlist</a></li>
-                            <li><a href="#">Track My Order</a></li>
-                            <li><a href="#">Help</a></li>
+                            <li><a href="#">Minha Conta</a></li>
+                            <li><a href="#">Ver Meu Carrinho</a></li>
+                            <li><a href="#">Lista de Desejos</a></li>
+                            <li><a href="#">Rastrear Meu Pedido</a></li>
+                            <li><a href="#">Ajuda</a></li>
                         </ul>
                     </div>
                 </div>
