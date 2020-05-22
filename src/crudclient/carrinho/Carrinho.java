@@ -3,6 +3,16 @@ package crudclient.carrinho;
 public class Carrinho {
     private int id_carrinho, id_pedido, id_produto, quantidade;
     private Double valor;
+    private String produto, imagem;
+    private Double preco;
+
+    public Carrinho(int id_produto, String produto, String imagem, Double preco, int quantidade) {
+        this.id_produto = id_produto;
+        this.quantidade = quantidade;
+        this.produto = produto;
+        this.preco = preco;
+        this.imagem = imagem;
+    }
 
     public Carrinho(int id_carrinho, int id_pedido, int id_produto, int quantidade, Double valor) {
         this.id_carrinho = id_carrinho;
@@ -17,6 +27,30 @@ public class Carrinho {
         this.id_produto = id_produto;
         this.quantidade = quantidade;
         this.valor = valor;
+    }
+
+    public String getProduto() {
+        return produto;
+    }
+
+    public void setProduto(String produto) {
+        this.produto = produto;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
     }
 
     public int getId_carrinho() {

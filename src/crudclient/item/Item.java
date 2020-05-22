@@ -1,10 +1,10 @@
-package crudclient.itens;
+package crudclient.item;
 
-public class Itens {
+public class Item {
     private int id_itens, id_venda, id_produto, qtde_item;
     private Double valor_item, subtotal;
 
-    public Itens(int id_itens, int id_venda, int id_produto, int qtde_item, Double valor_item, Double subtotal) {
+    public Item(int id_itens, int id_venda, int id_produto, int qtde_item, Double valor_item, Double subtotal) {
         this.id_itens = id_itens;
         this.id_venda = id_venda;
         this.id_produto = id_produto;
@@ -13,7 +13,7 @@ public class Itens {
         this.subtotal = subtotal;
     }
 
-    public Itens(int id_venda, int id_produto, int qtde_item, Double valor_item, Double subtotal) {
+    public Item(int id_venda, int id_produto, int qtde_item, Double valor_item, Double subtotal) {
         this.id_venda = id_venda;
         this.id_produto = id_produto;
         this.qtde_item = qtde_item;

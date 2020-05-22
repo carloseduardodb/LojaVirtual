@@ -1,23 +1,24 @@
-package crudadmin.venda;
-
+package crudclient.venda;
 import java.sql.Date;
 
 public class Venda {
-    private int id_venda, id_cliente;
-    private Date data_venda;
-    private String pago, forma_pagamento;
+    int id_venda, id_cliente;
+    Date data_venda;
+    String cod_rastreio, pago, forma_pagamento;
 
-    public Venda(int id_venda, int id_cliente, Date data_venda, String pago, String forma_pagamento) {
-        this.id_venda = id_venda;
+    public Venda(int id_cliente, Date data_venda, String cod_rastreio, String pago, String forma_pagamento) {
         this.id_cliente = id_cliente;
         this.data_venda = data_venda;
+        this.cod_rastreio = cod_rastreio;
         this.pago = pago;
         this.forma_pagamento = forma_pagamento;
     }
 
-    public Venda(int id_cliente, Date data_venda, String pago, String forma_pagamento) {
+    public Venda(int id_venda, int id_cliente, Date data_venda, String cod_rastreio, String pago, String forma_pagamento) {
+        this.id_venda = id_venda;
         this.id_cliente = id_cliente;
         this.data_venda = data_venda;
+        this.cod_rastreio = cod_rastreio;
         this.pago = pago;
         this.forma_pagamento = forma_pagamento;
     }
@@ -44,6 +45,14 @@ public class Venda {
 
     public void setData_venda(Date data_venda) {
         this.data_venda = data_venda;
+    }
+
+    public String getCod_rastreio() {
+        return cod_rastreio;
+    }
+
+    public void setCod_rastreio(String cod_rastreio) {
+        this.cod_rastreio = cod_rastreio;
     }
 
     public String getPago() {

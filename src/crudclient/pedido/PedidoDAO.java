@@ -13,14 +13,15 @@ public class PedidoDAO {
         boolean cadastrou;
         Connection con = ConnectionDatabase.getConnection();
         PreparedStatement stmt = null;
-
+        java.util.Date dataUtil = new java.util.Date();
+        java.sql.Date dataSql = new java.sql.Date(dataUtil.getTime());
         try {
             stmt = con.prepareStatement("INSERT INTO " +
                     "pedido (id_cliente, qtd, data_pedido) " +
                     "VALUES (?,?,?)");
             stmt.setInt(1, p.getId_cliente());
             stmt.setInt(2, p.getQtd());
-            stmt.setDate(3, p.getData_pedido());
+            stmt.setDate(3, dataSql);
             stmt.executeUpdate();
             cadastrou = true;
         } catch (SQLException throwables) {
@@ -68,7 +69,7 @@ public class PedidoDAO {
         PreparedStatement stmt = null;
 
         try{
-            stmt = con.prepareStatement("DELETE FROM pedido WHERE id_pedido = ?");
+            stmt = con.prepareStatement("DELETE FROM pedido WHERE id_cliente = ?");
             stmt.setInt(1, id);
             stmt.executeUpdate();
             apagou = true;

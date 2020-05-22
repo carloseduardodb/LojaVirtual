@@ -1,5 +1,7 @@
-package crudadmin.venda;
+package crudclient.item;
+
 import connection.ConnectionDatabase;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,24 +9,23 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VendaDAO {
+public class ItemDAO {
 
-
-    public Boolean create(Venda v) {
-        Boolean cadastrou;
+    public Boolean create(Item i) {
+        boolean cadastrou;
 
         Connection con = ConnectionDatabase.getConnection();
         PreparedStatement stmt = null;
 
         try {
             stmt = con.prepareStatement("INSERT INTO " +
-                    "venda (id_venda, id_cliente, data_venda, pago, forma_pagamento) " +
+                    "itens (id_venda, id_produto, valor_item, qtde_item, subtotal) " +
                     "VALUES (?,?,?,?,?)");
-            stmt.setInt(1, v.getId_venda());
-            stmt.setInt(2, v.getId_cliente());
-            stmt.setDate(3, v.getData_venda());
-            stmt.setString(4, v.getPago());
-            stmt.setString(5, v.getForma_pagamento());
+            stmt.setInt(1, i.getId_venda());
+            stmt.setInt(2, i.getId_produto());
+            stmt.setDouble(3, i.getValor_item());
+            stmt.setInt(4, i.getQtde_item());
+            stmt.setDouble(5, i.getSubtotal());
             stmt.executeUpdate();
             cadastrou = true;
         } catch (SQLException throwables) {
@@ -37,12 +38,12 @@ public class VendaDAO {
         return cadastrou;
     }
 
-    public List<Venda> read(String sql){
+    public List<Item> read(String sql){
         Connection con = ConnectionDatabase.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        List<Venda> listvend = new ArrayList<>();
+        List<Item> listitens = new ArrayList<>();
 
         try {
             System.out.println("**********************************"+sql);
@@ -50,30 +51,29 @@ public class VendaDAO {
             rs = stmt.executeQuery();
 
             while(rs.next()){
-                Venda venda = new Venda(rs.getInt("id_venda"),
-                        rs.getInt("id_cliente"),
-                        rs.getDate("data_venda"),
-                        rs.getString("pago"),
-                        rs.getString("forma_pagamento"));
-                listvend.add(venda);
+                Item itens = new Item(rs.getInt("id_itens"),
+                        rs.getInt("id_venda"),
+                        rs.getInt("id_produto"),
+                        rs.getInt("qtde_item"),
+                        rs.getDouble("valor_item"),
+                        rs.getDouble("subtotal"));
+                listitens.add(itens);
             }
-
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }finally {
             ConnectionDatabase.closeConnection(con, stmt, rs);
         }
-
-        return listvend;
+        return listitens;
     }
 
     public Boolean delete(Integer id){
-        Boolean apagou;
+        boolean apagou;
         Connection con = ConnectionDatabase.getConnection();
         PreparedStatement stmt = null;
 
         try{
-            stmt = con.prepareStatement("DELETE FROM venda WHERE id_venda = ?");
+            stmt = con.prepareStatement("DELETE FROM itens WHERE id_itens = ?");
             stmt.setInt(1, id);
             stmt.executeUpdate();
             apagou = true;
@@ -84,20 +84,22 @@ public class VendaDAO {
         return apagou;
     }
 
-    public Boolean update(Venda v){
+    public Boolean update(Item i){
 
-        Boolean atualizou;
+        boolean atualizou;
         Connection con = ConnectionDatabase.getConnection();
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("UPDATE venda SET id_cliente = ?, " +
-                    "data_venda = ?, pago = ?, forma_pagamento = ? WHERE id_venda = ?;");
-            stmt.setInt(1, v.getId_cliente());
-            stmt.setDate(2, v.getData_venda());
-            stmt.setString(3, v.getPago());
-            stmt.setString(4, v.getForma_pagamento());
-            stmt.setInt(5, v.getId_venda());
+            stmt = con.prepareStatement("UPDATE itens SET id_venda = ?, " +
+                    "id_produto = ?, valor_item = ?, qtde_item = ?, subtotal = ? " +
+                    "WHERE id_itens = ?;");
+            stmt.setInt(1, i.getId_venda());
+            stmt.setInt(2, i.getId_produto());
+            stmt.setDouble(3, i.getValor_item());
+            stmt.setInt(4, i.getQtde_item());
+            stmt.setDouble(4, i.getSubtotal());
+            stmt.setInt(5, i.getId_itens());
 
             stmt.executeUpdate();
             atualizou = true;

@@ -44,7 +44,7 @@
                             </div>
                             <div class="product-body">
                                 <p class="product-category"><%=dpl.getCategoria()%></p>
-                                <h3 class="product-name"><a href="#"><%=dpl.getNome()%></a></h3>
+                                <h3 class="product-name"><a href="backpages/selectproduto/model.jsp?idproduto=<%=dpl.getId_produto()%>"><%=dpl.getNome()%></a></h3>
                                 <h4 class="product-price">R$<%=dpl.getPreco()%> <del class="product-old-price">R$<%=dpl.getPreco_alto()%></del></h4>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                             </div>
                             <div class="product-body">
                                 <p class="product-category"><%=dplsub.getSubcategoria()%></p>
-                                <h3 class="product-name"><a href="#"><%=dplsub.getNome()%></a></h3>
+                                <h3 class="product-name"><a href="backpages/selectproduto/model.jsp?idproduto=<%=dplsub.getId_produto()%>"><%=dplsub.getNome()%></a></h3>
                                 <h4 class="product-price">R$<%=dplsub.getPreco()%> <del class="product-old-price">R$<%=dplsub.getPreco_alto()%></del></h4>
                             </div>
                         </div>
@@ -105,7 +105,7 @@
                             </div>
                             <div class="product-body">
                                 <p class="product-category"><%=dplfab.getFabricante()%></p>
-                                <h3 class="product-name"><a href="#"><%=dplfab.getNome()%></a></h3>
+                                <h3 class="product-name"><a href="backpages/selectproduto/model.jsp?idproduto=<%=dplfab.getId_produto()%>"><%=dplfab.getNome()%></a></h3>
                                 <h4 class="product-price">R$<%=dplfab.getPreco()%> <del class="product-old-price">R$<%=dplfab.getPreco_alto()%></del></h4>
                             </div>
                         </div>

@@ -1,7 +1,8 @@
 <%@ page import="crudadmin.categorias.Categoria" %>
 <%@ page import="crudadmin.fabricante.Fabricante" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.google.gson.Gson" %><%--
+<%@ page import="com.google.gson.Gson" %>
+<%@ page import="crudclient.carrinho.Carrinho" %><%--
   Created by IntelliJ IDEA.
   User: Carlos
   Date: 16/05/2020
@@ -27,6 +28,12 @@
     if(session.getAttribute("jsonfabricante") != null){
         ltfb = (List<Fabricante>) session.getAttribute("jsonfabricante");
         fabricantejson = new Gson().toJson(ltfb);
+    }
+
+    Double subtotal = 0.00;
+    List<Carrinho> carrinhoprodutos = null;
+    if(session.getAttribute("carrinhocliente") != null){
+        carrinhoprodutos = (List<Carrinho>) session.getAttribute("carrinhocliente");
     }
 %>
 
@@ -72,7 +79,7 @@
                 <!-- LOGO -->
                 <div class="col-md-3">
                     <div class="header-logo">
-                        <a href="#" class="logo">
+                        <a href="index.jsp" class="logo">
                             <img src="img/logo.png" alt="" width="200">
                         </a>
                     </div>
@@ -97,57 +104,40 @@
                 </div>
                 <!-- /SEARCH BAR -->
 
+                <% if(session.getAttribute("cliente")!=null && session.getAttribute("carrinhocliente") != null) {%>
                 <!-- ACCOUNT -->
                 <div class="col-md-3 clearfix">
                     <div class="header-ctn">
-                        <!-- Wishlist -->
-                        <div>
-                            <a href="#" style="color: black">
-                                <i class="fa fa-heart-o"></i>
-                                <span>Sua lista de Compras</span>
-                                <div class="qty">2</div>
-                            </a>
-                        </div>
-                        <!-- /Wishlist -->
-
                         <!-- Cart -->
                         <div class="dropdown">
                             <a class="dropdown-toggle" style="color: black" data-toggle="dropdown" aria-expanded="true">
-                                <i class="fa fa-shopping-cart"></i>
-                                <span>Seu carrinho</span>
-                                <div class="qty">3</div>
+                                <h2><i class="fa fa-shopping-cart"></i></h2>
+                                <span><h5>Seu Carrinho</h5></span>
+                                <div class="qty"><%=carrinhoprodutos != null ? carrinhoprodutos.size() : "0"%></div>
                             </a>
                             <div class="cart-dropdown">
                                 <div class="cart-list">
+                                    <% for(Carrinho cr : carrinhoprodutos) {%>
+                                    <% subtotal += cr.getPreco(); %>
                                     <div class="product-widget">
                                         <div class="product-img">
-                                            <img src="./img/product01.png" alt="">
+                                            <img src="./img/<%=cr.getImagem()%>" alt="">
                                         </div>
                                         <div class="product-body">
-                                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                            <h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
+                                            <h3 class="product-name"><a href="#"><%=cr.getProduto()%></a></h3>
+                                            <h4 class="product-price"><span class="qty">1x</span>R$ <%=cr.getPreco()%></h4>
                                         </div>
                                         <button class="delete"><i class="fa fa-close"></i></button>
                                     </div>
-
-                                    <div class="product-widget">
-                                        <div class="product-img">
-                                            <img src="./img/product02.png" alt="">
-                                        </div>
-                                        <div class="product-body">
-                                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                            <h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-                                        </div>
-                                        <button class="delete"><i class="fa fa-close"></i></button>
-                                    </div>
+                                    <%}%>
                                 </div>
                                 <div class="cart-summary">
-                                    <small>3 Item(s) selected</small>
-                                    <h5>SUBTOTAL: $2940.00</h5>
+                                    <small><%=carrinhoprodutos != null ? carrinhoprodutos.size() : "0"%> Item(s) selecionados</small>
+                                    <h5>SUBTOTAL: R$ <%=subtotal%></h5>
                                 </div>
                                 <div class="cart-btns">
-                                    <a href="#">View Cart</a>
-                                    <a href="#">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="#">Ver Carrinho</a>
+                                    <a href="backpages/venda/model.jsp">Comprar <i class="fa fa-shopping-bag"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -164,6 +154,8 @@
                     </div>
                 </div>
                 <!-- /ACCOUNT -->
+                <%}%>
+
             </div>
             <!-- row -->
         </div>

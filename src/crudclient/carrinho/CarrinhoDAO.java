@@ -13,7 +13,7 @@ import java.util.List;
 public class CarrinhoDAO {
 
     public Boolean create(Carrinho c) {
-        Boolean cadastrou;
+        boolean cadastrou;
         Connection con = ConnectionDatabase.getConnection();
         PreparedStatement stmt = null;
 
@@ -68,8 +68,43 @@ public class CarrinhoDAO {
         return listcar;
     }
 
+    public List<Carrinho> readclientecar(){
+        String sql = "SELECT pr.id_produto, pr.produto, pr.imagem, pr.preco, " +
+                "pe.qtd FROM carrinho AS c JOIN produto AS pr ON " +
+                "c.id_produto = pr.id_produto JOIN pedido AS pe ON " +
+                "c.id_pedido = pe.id_pedido WHERE pe.id_cliente = 11;";
+
+        Connection con = ConnectionDatabase.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<Carrinho> listcar = new ArrayList<>();
+
+        try {
+            System.out.println("**********************************"+sql);
+            stmt = con.prepareStatement(sql);
+            rs = stmt.executeQuery();
+
+            while(rs.next()){
+                Carrinho carrinho = new Carrinho(rs.getInt("id_produto"),
+                        rs.getString("produto"),
+                        rs.getString("imagem"),
+                        rs.getDouble("preco"),
+                        rs.getInt("qtd"));
+                listcar.add(carrinho);
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            ConnectionDatabase.closeConnection(con, stmt, rs);
+        }
+
+        return listcar;
+    }
+
     public Boolean delete(Integer id){
-        Boolean apagou;
+        boolean apagou;
         Connection con = ConnectionDatabase.getConnection();
         PreparedStatement stmt = null;
 
@@ -87,7 +122,7 @@ public class CarrinhoDAO {
 
     public Boolean update(Carrinho c){
 
-        Boolean atualizou;
+        boolean atualizou;
         Connection con = ConnectionDatabase.getConnection();
         PreparedStatement stmt = null;
 

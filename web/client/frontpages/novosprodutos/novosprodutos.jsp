@@ -79,7 +79,7 @@
                                     <div class="product-body">
                                         <p class="product-category"><%=dpl.getCategoria()%>
                                         </p>
-                                        <h3 class="product-name"><a href="#"><%=dpl.getNome()%>
+                                        <h3 class="product-name"><a href="backpages/selectproduto/model.jsp?idproduto=<%=dpl.getId_produto()%>"><%=dpl.getNome()%>
                                         </a></h3>
                                         <h4 class="product-price">R$<%=dpl.getPreco()%>
                                             <del class="product-old-price">R$<%=dpl.getPreco_alto()%>
@@ -102,8 +102,7 @@
                                         </div>
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Comprar
-                                        </button>
+                                        <button onclick="location.href='backpages/carrinho/model.jsp?idproduto=<%=dpl.getId_produto()%>'" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <a class="plusaddcar"><i class="fa fa-plus"></i></a>  Carrinho </button>
                                     </div>
                                 </div>
                                 <!-- /product -->
