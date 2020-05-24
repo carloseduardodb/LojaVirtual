@@ -82,6 +82,11 @@
 <%@include file="frontpages/cadastro/cadastro.jsp" %>
 
 <%}%>
+
+<%if(pagina.equals("painel")){%>
+<%@include file="frontpages/painelusuario/painel.jsp"%>
+<%}%>
+
 <%if (!pagina.equals("cadastro")) {%>
 <%@include file="frontpages/recebanovasofertas/recebanovasofertas.jsp" %>
 <%}%>

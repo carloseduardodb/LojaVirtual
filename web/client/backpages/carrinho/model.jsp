@@ -45,6 +45,6 @@
         cardao.create(carrinho);
         response.sendRedirect("../navbar/model.jsp");
     }else{
-        response.sendRedirect("../../index.jsp?pagina=checkout");
+        response.sendRedirect("../../index.jsp?pagina=login&continuar=true");
     }
 %>

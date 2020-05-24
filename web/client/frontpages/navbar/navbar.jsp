@@ -136,7 +136,7 @@
                                     <h5>SUBTOTAL: R$ <%=subtotal%></h5>
                                 </div>
                                 <div class="cart-btns">
-                                    <a href="#">Ver Carrinho</a>
+                                    <a href="index.jsp?pagina=checkout">Ver Carrinho</a>
                                     <a href="backpages/venda/model.jsp">Comprar <i class="fa fa-shopping-bag"></i></a>
                                 </div>
                             </div>

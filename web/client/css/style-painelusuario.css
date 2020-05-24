@@ -1,0 +1,35 @@
+.corpo{
+    background-color: #f5f5f5;
+  margin-top: 5vh;
+  width: 75vw;
+  border-radius: 15px;
+}
+
+.botao{
+  margin-top: 5px;
+  font-size: 19px;
+  background-color: #9477ff;
+  color: #fff;
+  width: 100%;
+}
+
+.botao:hover{
+  background-color: #9477ff;
+  color: #fff;
+  width: 90%;
+}
+
+.esquerda{
+  height: 100%;
+  padding-bottom: 4vh;
+}
+
+.direita{
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+}
+
+.fundo-painel{
+    background: #f5f5f5 url("../img/usergerence.svg") no-repeat bottom left;
+    background-size: 28vw;
+}
