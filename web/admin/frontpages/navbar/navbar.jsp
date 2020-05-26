@@ -22,7 +22,7 @@
             <a href="#"><img class="perfil" src="img/profile.jpg" align="left" width="80px" height="80px"></a>
             <ul class="dados">
                 <li>
-                    <h6>Olá Usuário!</h6>
+                    <h6>Bem vindo(a)!</h6>
                 </li>
                 <li>
                     <img src="img/email.png" width="20px">
@@ -60,6 +60,7 @@
 
     <div class="menu">
         <button onclick="window.location.href = 'index.jsp'">Inicio</button>
+        <button onclick="window.location.href = 'backpages/vendas/controller.jsp?acao=visualizar'">Vendas</button>
         <button onclick="window.location.href = 'backpages/categorias/model.jsp?acao=visualizar'">Categorias</button>
         <button onclick="window.location.href = 'backpages/subcategorias/model.jsp?acao=visualizar'">Subcategorias</button>
         <button onclick="window.location.href = 'backpages/fabricantes/model.jsp?acao=visualizar'">Fabricantes</button>

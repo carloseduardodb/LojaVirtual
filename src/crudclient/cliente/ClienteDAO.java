@@ -140,8 +140,8 @@ public class ClienteDAO {
                     "empresa = ?, contato = ?, cnpj = ?, IncEst = ?, " +
                     "cliente = ?, cpf = ?, RG = ?, endereco = ?, numero = ?, " +
                     "complemento = ?, bairro = ?, cidade = ?, uf = ?, cep = ?, " +
-                    "ddd = ?, fone1 = ?, fone2 = ?, sexo = ?, email = ?, senha = ?, " +
-                    "data_cadastro = ?, ativo_cliente = ?" +
+                    "ddd = ?, fone1 = ?, fone2 = ?, sexo = ?, email = ?, " +
+                    "ativo_cliente = ?" +
                     " WHERE id_cliente = ?;");
 
             stmt.setString(1, c.getTipo());
@@ -164,10 +164,34 @@ public class ClienteDAO {
             stmt.setString(18, c.getFone2());
             stmt.setString(19, c.getSexo());
             stmt.setString(20, c.getEmail());
-            stmt.setString(21, c.getSenha());
-            stmt.setString(22, c.getData_cadastro());
-            stmt.setString(23, c.getAtivo_cliente());
-            stmt.setInt(24, c.getId_cliente());
+            stmt.setString(21, c.getAtivo_cliente());
+            stmt.setInt(22, c.getId_cliente());
+
+            stmt.executeUpdate();
+            atualizou = true;
+
+        } catch (SQLException throwables) {
+            atualizou = false;
+            throwables.printStackTrace();
+        } finally {
+            ConnectionDatabase.closeConnection(con, stmt);
+        }
+
+        return atualizou;
+    }
+
+    public Boolean updatesenha(Cliente c){
+
+        boolean atualizou;
+        Connection con = ConnectionDatabase.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("UPDATE cliente SET senha = ?" +
+                    " WHERE id_cliente = ?;");
+
+            stmt.setString(1, c.getSenha());
+            stmt.setInt(2, c.getId_cliente());
 
             stmt.executeUpdate();
             atualizou = true;

@@ -1,0 +1,297 @@
+/*
+
+Author : Kouloughli Hemza;
+Date : 11/2016;
+Name :Login Form for Admins or what ever;
+
+*/
+* {
+    margin:0px;
+    padding:0px;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -o-box-sizing:border-box;
+    box-sizing:border-box;
+}
+
+body {
+
+    background: linear-gradient(9deg, rgb(82, 81, 81), rgb(28, 28, 28));
+    background: -webkit-linear-gradient(9deg, rgb(82, 81, 81), rgb(28, 28, 28));
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+}
+
+
+.biggest {
+    margin: 80px 10%;
+}
+
+
+/* Start Navigation here */
+.nav {
+    background-color:#fff;
+    min-width: 160px;
+    min-height: 470px;
+    float:left;
+    position: relative;
+    padding:0px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
+
+
+}
+.nav ul {
+    margin:0;
+    padding: 0;
+}
+.nav ul li {
+    list-style: none;
+    padding:20px 0px;
+}
+
+.nav ul li a {
+    display: block;
+    padding: 0px 11px;
+    text-decoration: none;
+    color:#828282;
+    font-weight: 400;
+    font-size: 14px;
+
+}
+.nav ul li a i {
+    display:block;
+}
+
+hr {
+    padding:25px 5px;
+    background-color: #9477ff;
+    position: absolute;
+    display:block;
+    top: 26%;
+    left: 0px;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+}
+
+.nav ul .move2:hover ~ hr {
+    top:41%;
+}
+
+.nav ul .move3:hover ~ hr {
+    top:56%;
+}
+
+.nav ul .move4:hover ~ hr {
+    top:71%;
+}
+
+.fa {
+    color: #828282;
+}
+/* Start Navigation here */
+
+/* Start Introduction */
+.intro {
+    background-color: #9477ff;
+    min-height: 520px;
+    min-width: 500px;
+    position: absolute;
+    top: -30px;
+    left: 153px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -10px 2px 10px rgba(0, 0, 0, 0.16);
+    z-index:999;
+
+}
+.intro .par {
+    text-align: start;
+}
+.intro .par h3 {
+    color:#fff;
+    font-size: 26px;
+    text-shadow: 0 2px 30px rgba(0, 0, 0, .4);
+    margin-bottom: 15px;
+
+}
+
+.intro .par span {
+    color: #fff;
+    font-size: 17px;
+    font-weight: 100;
+    opacity: .9;
+    line-height: 30px;
+    font-family: 'Open Sans', sans-serif;
+
+
+
+}
+
+.intro .par .social {
+    margin-top: 150px;
+}
+.intro .par .social .fa {
+    color:#fff;
+}
+.intro .par .social a {
+
+    margin-right: 15px;
+}
+/* End Introduction */
+
+/* Start The Forms */
+
+.container {
+    position: relative;
+    left: 654px;
+}
+.logged {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.container .login {
+    position: absolute;
+    top:0;
+    left:0;
+    background-color: #fff;
+    min-width: 160px;
+    min-height: 470px;
+    border-radius: 0px 10px 10px 0px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
+    padding:40px;
+    padding-top: 80px;
+}
+.container .login p{
+    color:#828282;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 20px;
+}
+.container .login p span  a  , .container .login p span  {
+    color:#9477ff;
+    font-weight: 900;
+    font-size:14px;
+    text-decoration:none;
+}
+.container .login input{
+    display:block;
+    margin-top:20px;
+    padding:13px 15px;
+    width:275px;
+    color:#828282;
+    outline:none;
+    transition: .6s linear;
+    color:#757575;
+    border:0;
+    box-shadow: -9px 7px 17px #ddd;
+    transition: .6s ease-in-out;
+
+}
+.container .login input:focus {
+
+    border:2px solid #4259DD;
+
+}
+.container .login button {
+    border-radius: 50%;
+    width:50px;
+    height:50px;
+    margin: 35px auto ;
+    background-color:#9477ff;
+    color:#fff;
+    outline:none;
+    display:block;
+    border:0px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    cursor:pointer;
+}
+.container .login button:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.container .login button .fa {
+    color:#fff;
+    font-size:20px;
+
+}
+
+/* reg form */
+
+.container .reg {
+    position: absolute;
+    top:0;
+    left:-357px;
+    background-color: #fff;
+    min-width: 160px;
+    min-height: 470px;
+    border-radius: 0px 10px 10px 0px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
+    padding:40px;
+    padding-top: 40px;
+    transition: .5s cubic-bezier(0.4, 0.0, 1, 1);
+}
+.container .reg p{
+    color:#828282;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 20px;
+}
+.container .reg p span a , .container .reg p span {
+    color:#9477ff;
+    font-weight: 900;
+    font-size:14px;
+    text-decoration:none;
+}
+.container .reg input{
+    display:block;
+    margin-top:20px;
+    padding:13px 15px;
+    width:275px;
+    color:#828282;
+    outline:none;
+    transition: .6s linear;
+    color:#757575;
+    border:0;
+    box-shadow: -9px 7px 17px #ddd;
+    transition:all  .6s ease-in-out;
+
+}
+.container .reg  input:focus {
+
+    border:2px solid #4259DD;
+
+}
+.container .reg  button {
+    border-radius: 50%;
+    width:50px;
+    height:50px;
+    margin: 15px auto ;
+    background-color:#9477ff;
+    color:#fff;
+    outline:none;
+    display:block;
+    border:0px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    cursor:pointer;
+
+}
+.container .reg  button:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.container .reg  button .fa {
+    color:#fff;
+    font-size:20px;
+}
+
+.regopen {
+    left:0!important;
+}
+/* reg end form */
+
+
+/* End Of the Forms */

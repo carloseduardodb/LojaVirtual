@@ -44,6 +44,15 @@
     List<Fabricante> fabricante = cadatuprodao.readfabricante();
     List<Carrinho> carrinhocliente = carinhoclientedao.readclientecar();
 
+    session.removeAttribute("listadestaquecategoria");
+    session.removeAttribute("categoria");
+    session.removeAttribute("listultimosprodutos");
+    session.removeAttribute("listultimascategorias");
+    session.removeAttribute("listultimassubcategorias");
+    session.removeAttribute("listultimasfabricante");
+    session.removeAttribute("jsonfabricante");
+    session.removeAttribute("carrinhocliente");
+
     session.setAttribute("listadestaquecategoria", listadestaquecategoria);
     session.setAttribute("categoria", lstcat);
     session.setAttribute("listultimosprodutos", listaultimosprodutos);

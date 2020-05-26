@@ -8,6 +8,7 @@
   Date: 16/05/2020
   Time: 07:24
 --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String telefone = "", email = "", endereco = "", fabricantejson ="";
     List<Cliente> cl = (List<Cliente>) session.getAttribute("cliente");
@@ -37,7 +38,6 @@
     }
 %>
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- HEADER -->
 <header>
 
@@ -54,7 +54,7 @@
             </ul>
             <ul class="header-links pull-right">
                 <li><a href="#"><i class="fa fa-dollar"></i> BRL</a></li>
-                <li><a href="#"><i class="fa fa-user-o"></i> Minha Conta</a></li>
+                <li><a href="backpages/painelusuario/compras/model.jsp"><i class="fa fa-user-o"></i> Minha Conta</a></li>
             </ul>
         </div>
     </div>

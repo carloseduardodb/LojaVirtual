@@ -2,15 +2,20 @@ package crudclient.cliente;
 
 public class Cliente {
     private int id_cliente;
-
-    public Cliente() {
-    }
-
+    private String senhanova;
     private String tipo, empresa, contato, cnpj,
             incest, cliente, cpf, rg, endereco, numero,
             complemento, bairro, cidade, uf, cep,
             ddd, fone1, fone2, sexo, email, senha,
             data_cadastro, ativo_cliente;
+
+    public Cliente() {
+    }
+
+    public Cliente(int id_cliente, String senha) {
+        this.id_cliente = id_cliente;
+        this.senha = senha;
+    }
 
     public Cliente(int id_cliente, String tipo, String empresa,
                    String contato, String cnpj, String incest,

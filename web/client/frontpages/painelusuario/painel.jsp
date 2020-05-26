@@ -20,9 +20,16 @@
             <h3><strong>Bem Vindo(a)!</strong></h3>
             <br>
             <div class="esquerda">
-                <button class="btn btn-default botao" onclick="location.href='index.jsp?pagina=painel'">Pedidos</button>
-                <button class="btn btn-default botao" onclick="location.href='index.jsp?pagina=painel&paginaadmin=meusdados'">Meus Dados</button>
-                <button type="button" class="btn btn-default botao" data-toggle="modal" data-target="#apagar">Apagar Conta</button>
+                <button class="btn btn-default botao" onclick="location.href='index.jsp?pagina=painel'">Compras</button>
+                <button class="btn btn-default botao"
+                        onclick="location.href='index.jsp?pagina=painel&paginaadmin=meusdados'">Meus Dados
+                </button>
+                <button type="button" class="btn btn-default botao" data-toggle="modal" data-target="#apagar">Apagar
+                    Conta
+                </button>
+                <button class="btn btn-default botao"
+                        onclick="location.href='backpages/usuario/model.jsp?acao=sair'">Sair
+                </button>
             </div>
         </div>
 
@@ -39,7 +46,8 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="apagar" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+<div class="modal fade" id="apagar" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -48,13 +56,16 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <label> Esta ação não pode ser desfeita! </label>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-danger">Apagar</button>
-            </div>
+            <form method="post" action="backpages/usuario/model.jsp">
+                <input type="text" name="acao" value="apagar" hidden>
+                <div class="modal-body">
+                    <label> Esta ação não pode ser desfeita! </label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-danger">Apagar</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

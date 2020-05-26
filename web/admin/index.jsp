@@ -20,7 +20,11 @@
     %>
     <%@include file="frontpages/inicio/importacoes.html" %>
     <%
-    } else if (pagina.equals("categorias")) {
+    } else if (pagina.equals("vendas")) {
+    %>
+    <%@include file="frontpages/vendas/importacoes.html" %>
+    <%
+    }else if (pagina.equals("categorias")) {
     %>
     <%@include file="frontpages/categorias/importacoes.html" %>
     <%
@@ -62,7 +66,11 @@
 %>
 <%@include file="frontpages/inicio/inicio.jsp" %>
 <%
-} else if (pagina.equals("categorias")) {
+} else if (pagina.equals("vendas")) {
+%>
+<%@include file="frontpages/vendas/vendas.jsp" %>
+<%
+}else if (pagina.equals("categorias")) {
 %>
 <%@include file="frontpages/categorias/categorias.jsp" %>
 <%
