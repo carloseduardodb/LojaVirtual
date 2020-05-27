@@ -12,25 +12,38 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
+    String acaodestinada = request.getParameter("acao") != null ? request.getParameter("acao") : "";
 
-    VendasDAO vendasDAO = new VendasDAO();
-    List<Vendas> compraslist = vendasDAO.readvendas("SELECT v.id_venda, c.cliente, " +
-            "v.pago, v.cod_rastreio FROM venda AS v JOIN cliente AS c ON v.id_cliente = c.id_cliente;");
 
-    Map<Integer, Object> listaprodutoskeycompras = new HashMap<Integer, Object>();
+    if(acaodestinada.equals("visualizar")) {
+        VendasDAO vendasDAO = new VendasDAO();
+        List<Vendas> compraslist = vendasDAO.readvendas("SELECT v.id_venda, c.cliente, " +
+                "v.pago, v.cod_rastreio FROM venda AS v JOIN cliente AS c ON v.id_cliente = c.id_cliente;");
 
-    for(Vendas v : compraslist){
-        List<VendaProdutos> produtosdevenda = vendasDAO.readprodutos("SELECT p.produto, i.valor_item, " +
-                "i.qtde_item FROM itens AS i JOIN produto AS p ON i.id_produto = p.id_produto " +
-                "WHERE id_venda = "+v.getId_venda());
-        listaprodutoskeycompras.put(v.getId_venda(), produtosdevenda);
+        Map<Integer, Object> listaprodutoskeycompras = new HashMap<Integer, Object>();
+
+        for (Vendas v : compraslist) {
+            List<VendaProdutos> produtosdevenda = vendasDAO.readprodutos("SELECT p.produto, i.valor_item, " +
+                    "i.qtde_item FROM itens AS i JOIN produto AS p ON i.id_produto = p.id_produto " +
+                    "WHERE id_venda = " + v.getId_venda());
+            listaprodutoskeycompras.put(v.getId_venda(), produtosdevenda);
+        }
+        session.removeAttribute("listadecomprasusuarioadmin");
+        session.removeAttribute("listaprodutosdecomprausuarioadmin");
+
+        session.setAttribute("listadecomprasusuarioadmin", compraslist);
+        session.setAttribute("listaprodutosdecomprausuarioadmin", listaprodutoskeycompras);
+
+        response.sendRedirect("../../index.jsp?pagina=vendas");
+    }else if(acaodestinada.equals("addcodigorastreio")){
+        String idvenda = request.getParameter("idvenda") != null ? request.getParameter("idvenda") : "";
+        String codigo = request.getParameter("codigorastreio") != null ? request.getParameter("codigorastreio") : "";
+
+        VendasDAO vendasDAO = new VendasDAO();
+        vendasDAO.updaterastreio(Integer.parseInt(idvenda), codigo);
+
+        session.removeAttribute("listadecomprasusuarioadmin");
+        session.removeAttribute("listaprodutosdecomprausuarioadmin");
+        response.sendRedirect("../../index.jsp?pagina=vendas");
     }
-    session.removeAttribute("listadecomprasusuarioadmin");
-    session.removeAttribute("listaprodutosdecomprausuarioadmin");
-
-    session.setAttribute("listadecomprasusuarioadmin", compraslist);
-    session.setAttribute("listaprodutosdecomprausuarioadmin", listaprodutoskeycompras);
-
-    response.sendRedirect("../../index.jsp?pagina=vendas");
-
 %>

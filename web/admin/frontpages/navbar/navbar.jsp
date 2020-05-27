@@ -7,7 +7,7 @@
         <div class="col opcoes">
             <a href="#" class="d-lg-none d-md-none"><img src="img/menu-mobile.png" width="35px"></a>
             <a href="#"><img src="img/notify.png" width="35px"></a>
-            <a href="#"><img src="img/exit.png" width="35px"></a>
+            <a href="backpages/navbar/modelnavbar.jsp"><img src="img/exit.png" width="35px"></a>
         </div>
     </div>
 

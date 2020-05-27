@@ -66,4 +66,29 @@ public class VendasDAO {
 
         return listprodutos;
     }
+
+    public Boolean updaterastreio(Integer idvenda, String codrastreio){
+
+        Boolean atualizou;
+        Connection con = ConnectionDatabase.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("UPDATE venda SET cod_rastreio = ? " +
+                    "WHERE id_venda = ?;");
+            stmt.setString(1, codrastreio);
+            stmt.setInt(2, idvenda);
+
+            stmt.executeUpdate();
+            atualizou = true;
+
+        } catch (SQLException throwables) {
+            atualizou = false;
+            throwables.printStackTrace();
+        } finally {
+            ConnectionDatabase.closeConnection(con, stmt);
+        }
+
+        return atualizou;
+    }
 }

@@ -16,6 +16,11 @@
     Map<Integer, Object> listadeprodutosvendidos = session.getAttribute("listaprodutosdecomprausuarioadmin") != null ?
             (Map<Integer, Object>) session.getAttribute("listaprodutosdecomprausuarioadmin") : null;
 
+    if(session.getAttribute("listadecomprasusuarioadmin") == null &&
+            session.getAttribute("listaprodutosdecomprausuarioadmin") == null){
+        response.sendRedirect("backpages/vendas/controller.jsp?acao=visualizar");
+    }
+
 %>
 
 <div class="container pagina-inicio" align="center">
@@ -57,7 +62,7 @@
                 <td><%=v.getPago()%></td>
                 <td><%=v.getCodigo_rastreio()%></td>
                 <td>
-                    <button class="btn btn-warning">+ Rastreio</button>
+                    <button class="btn btn-warning" onclick="adicionaID(<%=v.getId_venda()%>)" data-toggle="modal" data-target="#modalAdicionacodigo">+ Rastreio</button>
                 </td>
             </tr>
             <%}}%>
@@ -128,3 +133,36 @@
 </div>
 
 <%}}%>
+
+<div class="modal fade" id="modalAdicionacodigo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel2">Adicione o código de rastreio abaixo:</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="backpages/vendas/controller.jsp">
+            <div class="modal-body">
+                <input name="acao" value="addcodigorastreio" hidden>
+                <input id="idvenda" name="idvenda" hidden>
+                <input name="codigorastreio" id="rastreio" class="form-control" type="text" placeholder="Insira o código de rastreio aqui!">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function adicionaID(identificacao){
+        document.getElementById("idvenda").setAttribute("value", identificacao);
+        document.getElementById("rastreio").setAttribute("value", "");
+    }
+
+</script>

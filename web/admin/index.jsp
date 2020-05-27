@@ -6,6 +6,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <!doctype html>
+<%
+
+    if(session.getAttribute("administrador")==null){
+        response.sendRedirect("../login/index.jsp?continualogin=true");
+    }
+
+%>
 <%@ include file="rotas.jsp" %>
 <html>
 <head>
