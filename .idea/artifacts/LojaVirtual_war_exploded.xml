@@ -1,0 +1,25 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="LojaVirtual:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/LojaVirtual_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="LojaVirtual/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="LojaVirtual" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="mysql-connector" />
+          <element id="library" level="project" name="gson-2.8.2" />
+          <element id="library" level="project" name="commons-fileupload-1.4" />
+          <element id="library" level="project" name="commons-io-2.4" />
+          <element id="library" level="project" name="net.sf.jasperreports:jasperreports:6.11.0" />
+        </element>
+      </element>
+      <element id="library" level="project" name="mysql-connector" />
+      <element id="library" level="project" name="gson-2.8.2" />
+      <element id="library" level="project" name="commons-fileupload-1.4" />
+      <element id="library" level="project" name="commons-io-2.4" />
+      <element id="library" level="project" name="net.sf.jasperreports:jasperreports:6.11.0" />
+    </root>
+  </artifact>
+</component>
