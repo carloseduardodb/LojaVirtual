@@ -1,5 +1,6 @@
 <img src="./img/image-project-1.png" style="border-radius: 10px" alt="text">
 <br>
+<img src="https://img.shields.io/github/repo-size/carloseduardodb/LojaVirtual" style="border-radius: 10px" alt="text">
 <h2>Descrição:</h2>
 <p>Este projeto foi feito com o intuito de me divertir, queria saber se eu daria conta de desenvolver um projeto grande e funcional e consegui :)</p>
 <h2>Conselho de amigo:</h2>
