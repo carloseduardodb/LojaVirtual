@@ -22,7 +22,7 @@
 
 <div style="display: flex;">
 <div style="padding: 20px">
-    <h2>Ajax Page</h2>
+    <h2>Página ajax de pesquisa: <br>(Quebrei minha cabeça aqui mas passo bem!)</h2>
     <kbd>
     <img src="./img/image-project-3.png" style="border-radius: 10px" alt="text">
     </kbd>
@@ -58,7 +58,7 @@
     </kbd>
 </div>
 <div style="padding: 20px">
-    <h2>Pagina de produtos comprados pelo usuário</h2>
+    <h2>Página de produtos comprados pelo usuário</h2>
     <kbd>
     <img src="./img/image-project-8.png" style="border-radius: 10px" alt="text">
     </kbd>
